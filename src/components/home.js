@@ -10,15 +10,15 @@ function Home() {
 				<div className="flex flex-col">
 					<div className="flex flex-row p-4">
 						<h3>Icon 1</h3>
-						<Statbar />
+						<Statbar fillLevel = "75"/>
 					</div>
 					<div className="flex flex-row p-4">
 						<h3>Icon 2 </h3>
-						<Statbar />
+						<Statbar fillLevel = "10"/>
 					</div>
 					<div className="flex flex-row p-4">
 						<h3>Icon 3 </h3>
-						<Statbar />
+						<Statbar fillLevel = "50"/>
 					</div>
 				</div>
 				<h1>Betyg</h1>
