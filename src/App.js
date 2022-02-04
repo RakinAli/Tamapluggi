@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import Navbar from "./components/navbar";
+import Flashcards from "./components/flashcards";
+import Home from "./components/home";
+import Planning from "./components/planning";
+import Stats from "./components/stats";
+import Study from "./components/study";
 
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+
+
+/* Hann inte göra klart Router-> Fixar klart Router idag*/
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Router>
+			<div className="App">
+				<Navbar />
+				<Routes>
+					<Route path="/flashcards" exact element={<Flashcards/>} />
+					<Route path="/home" exact element={<Home/>} />
+					<Route path="/planning" exact element={<Planning/>} />
+					<Route path="/stats" exact element={<Stats/>}/>
+					<Route path="/study" element={<Study/>}/>
+				</Routes>
+			</div>
+		</Router>
+	);
 }
 
 export default App;

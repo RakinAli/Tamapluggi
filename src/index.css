@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/*Navigation Bar CSS */
+.Navbar{
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+  min-height: 10vh;
+  background: DarkGreen;
+  color: rgb(255, 255, 255);
+}
+
+/*Länkarna till Navigation bar*/
+.nav-link{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
