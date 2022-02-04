@@ -1,4 +1,5 @@
 import React from "react";
+import Statbar from "./statbar";
 
 /*Fixat upp Flex box skit inför styling */
 function Home() {
@@ -9,15 +10,15 @@ function Home() {
 				<div className="flex flex-col">
 					<div className="flex flex-row p-4">
 						<h3>Icon 1</h3>
-						<h3 className="pl-px bg-red-200">Insert någon progression bar</h3>
+						<Statbar />
 					</div>
 					<div className="flex flex-row p-4">
 						<h3>Icon 2 </h3>
-						<h3 className="pl-px bg-red-200">Insert någon progression bar</h3>
+						<Statbar />
 					</div>
 					<div className="flex flex-row p-4">
 						<h3>Icon 3 </h3>
-						<h3 className="pl-px bg-red-200">Insert någon progression bar</h3>
+						<Statbar />
 					</div>
 				</div>
 				<h1>Betyg</h1>
