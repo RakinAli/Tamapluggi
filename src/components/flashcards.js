@@ -2,9 +2,9 @@ import React from "react";
 
 function Flashcards() {
 	return (
-		<div>
-			<h1>Flashcards</h1>
-		</div>
+		<main>
+			<h2>Flashcards</h2>
+		</main>
 	);
 }
 

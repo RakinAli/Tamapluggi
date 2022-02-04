@@ -2,9 +2,9 @@ import React from "react";
 
 function Study() {
 	return (
-		<div>
-			<h1>Study</h1>
-		</div>
+		<main>
+			<h2>Study</h2>
+		</main>
 	);
 }
 

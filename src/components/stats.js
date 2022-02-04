@@ -2,9 +2,9 @@ import React from "react";
 
 function Stats() {
 	return (
-		<div>
-			<h1>Stats</h1>
-		</div>
+		<main>
+			<h2>Stats</h2>
+		</main>
 	);
 }
 

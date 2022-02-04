@@ -2,9 +2,9 @@ import React from "react";
 
 function Planning() {
 	return (
-		<div>
-			<h1>Planning</h1>
-		</div>
+		<main>
+			<h2>Planning</h2>
+		</main>
 	);
 }
 
