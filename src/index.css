@@ -21,6 +21,9 @@
   align-items: center;
 }
 
+nav li:hover{
+  color: #000000;
+}
 
 body {
   margin: 0;
