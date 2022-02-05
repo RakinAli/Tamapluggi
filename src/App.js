@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Navbar from "./components/navbar";
-import Flashcards from "./components/Flashcards";
+import Flashcard from "./components/Flashcard";
 import Home from "./components/home";
 import Planning from "./components/planning";
 import Stats from "./components/stats";
@@ -18,7 +18,7 @@ function App() {
 			<div className="App">
 				<Header />
 				<Routes>
-					<Route path="/flashcards" exact element={<Flashcards/>} />
+					<Route path="/Flashcard" exact element={<Flashcard/>} />
 					<Route path="/home" exact element={<Home/>} />
 					<Route path="/planning" exact element={<Planning/>} />
 					<Route path="/stats" exact element={<Stats/>}/>
