@@ -33,7 +33,7 @@ function Navbar() {
 					style={iconStyle}
 				/>
 			</Link>
-			<Link to="/flashcards">
+			<Link to="/Flashcard">
 				<img
 					// Tried to add hoover effect with tailwind
 					className="hover:bg-slate-800"
