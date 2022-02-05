@@ -18,12 +18,17 @@ function Study() {
 		<main className="flex flex-col pt-3 ">
 			<Statpanel />
 			<div>
+			
 				{bool ? (
+					
+					
 					<SelectButtons />
+					
 				) : (
 					<img src={TablePicture} onClick={handleBoolean} />
 				)}
 			</div>
+			<h3>Lägg in bilden på gubben här</h3>
 		</main>
 	);
 }

@@ -27,7 +27,7 @@ function Navbar() {
 			<Link to="/study">
 				<img
 					// Tried to add hoover effect with tailwind
-					className="hover:bg-red-900"
+					className="hover:bg-slate-800"
 					src={studyIcon}
 					alt=""
 					style={iconStyle}

@@ -11,7 +11,14 @@ function Planning() {
 	}
 
 	function handleAdd() {
-		setTask([...task, input]);
+		if(input === ""){
+			return;
+		}
+		else{
+			setTask([...task, input]);
+			setInput("");
+		}
+		
 	}
 
 	function handleDelete(index) {
@@ -59,7 +66,7 @@ function Planning() {
 						<div>
 							<div className="nextTo">
 								<p>{item}</p>
-								<button onClick={() => handleDelete(index) } style = {buttonStyle}>Remove</button>
+								<button onClick={() => handleDelete(index) } style = {buttonStyle}>Done</button>
 							</div>
 						</div>
 					);
