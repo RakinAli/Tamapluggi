@@ -1,12 +1,18 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
+import settingsIcon from "../Images/Icons/settings.svg"
 
 /*Navigation bar */ 
 function Header() {
+
+	const iconStyle = {
+		width: "50px"
+	}
+
 	return (
 			<header className="flex flex-row justify-between Header">
 				<h1>Tamapluggi</h1>
-				<h3>Infoga settings bilden. När man tycker på denna så bör man komma till Settings.js. Jag hade problem med detta</h3>
+				<img src={settingsIcon} alt="" style={iconStyle} />
 			</header>
 	);
 }

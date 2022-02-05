@@ -28,7 +28,6 @@ function Study() {
 					<img src={TablePicture} onClick={handleBoolean} />
 				)}
 			</div>
-			<h3>Lägg in bilden på gubben här</h3>
 		</main>
 	);
 }
