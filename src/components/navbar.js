@@ -15,11 +15,51 @@ function Navbar() {
 
 	return (
 		<nav className="Navbar">
-			<Link to="/home"><img src = {homeIcon} alt = "" style = {iconStyle}/></Link>
-			<Link to="/study"><img src = {studyIcon} alt = "" style = {iconStyle}/></Link>
-			<Link to="/flashcards"><img src = {flashcardsIcon} alt = "" style = {iconStyle}/></Link>
-			<Link to="/planning"><img src = {planningIcon} alt = "" style = {iconStyle}/></Link>
-			<Link to="/stats"><img src = {statisticsIcon} alt = "" style = {iconStyle}/></Link>		
+			<Link to="/home">
+				<img
+					// Tried to add hoover effect with tailwind
+					className="hover:bg-slate-800"
+					src={homeIcon}
+					alt=""
+					style={iconStyle}
+				/>
+			</Link>
+			<Link to="/study">
+				<img
+					// Tried to add hoover effect with tailwind
+					className="hover:bg-red-900"
+					src={studyIcon}
+					alt=""
+					style={iconStyle}
+				/>
+			</Link>
+			<Link to="/flashcards">
+				<img
+					// Tried to add hoover effect with tailwind
+					className="hover:bg-slate-800"
+					src={flashcardsIcon}
+					alt=""
+					style={iconStyle}
+				/>
+			</Link>
+			<Link to="/planning">
+				<img
+					// Tried to add hoover effect with tailwind
+					className="hover:bg-slate-800"
+					src={planningIcon}
+					alt=""
+					style={iconStyle}
+				/>
+			</Link>
+			<Link to="/stats">
+				<img
+					// Tried to add hoover effect with tailwind
+					className="hover:bg-slate-800"
+					src={statisticsIcon}
+					alt=""
+					style={iconStyle}
+				/>
+			</Link>
 		</nav>
 	);
 }

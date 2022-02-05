@@ -64,7 +64,8 @@ h3{
   margin-bottom: 0.5rem;
 }
 
-/*Kommentera ut för att fylla hela fönstret eller ändra width: för att ändra bredden*/
+
+/*Kommentera ut för att fylla hela fönstret eller ändra width: för att ändra bredden
 @media(min-width: 450px) {
 
   body{
@@ -72,3 +73,4 @@ h3{
   }
   
 }
+*/
