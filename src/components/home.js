@@ -1,5 +1,7 @@
 import React from "react";
 import Statbar from "./statbar";
+import Betyg from "./betyg";
+import Pluggi from "../Images/Pluggi/1yr_walking.gif"
 
 /*Fixat upp Flex box skit inför styling */
 function Home() {
@@ -8,24 +10,24 @@ function Home() {
 		<main className=" flex flex-col">
 			<div className="flex flex-row">
 				<div className="flex flex-col">
-					<div className="flex flex-row p-4">
+					<div className="flex flex-row p-0.5">
 						<h3>Icon 1</h3>
 						<Statbar fillLevel = "75"/>
 					</div>
-					<div className="flex flex-row p-4">
+					<div className="flex flex-row p-0.5">
 						<h3>Icon 2 </h3>
 						<Statbar fillLevel = "10"/>
 					</div>
-					<div className="flex flex-row p-4">
+					<div className="flex flex-row p-0.5">
 						<h3>Icon 3 </h3>
 						<Statbar fillLevel = "50"/>
 					</div>
 				</div>
-				<h1>Betyg</h1>
+				<Betyg />
 			</div>
 			<div>
 				<h1>
-					Lägg in GIF: här på den där gubben
+					<img src = {Pluggi} alt = "" />
 				</h1>
 			</div>
 		</main>

@@ -8,7 +8,7 @@ function Statbar(props) {
     const barStyle = {
         backgroundColor: "#C4C4C4",
         margin: "10px",
-        width: "200px"
+        width: "150px"
     }
 
     const fillingStyle = {
