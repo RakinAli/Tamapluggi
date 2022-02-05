@@ -1,3 +1,4 @@
+import autoprefixer from "autoprefixer";
 import React from "react";
 
 function Statbar(props) {
@@ -7,24 +8,22 @@ function Statbar(props) {
 
     const barStyle = {
         backgroundColor: "#C4C4C4",
-        margin: "10px",
+        margin: "5px",
         width: "150px"
     }
 
     const fillingStyle = {
         backgroundColor: "#46892F",
-        height: "24px",
+        height: "100%",
         width: fill + "%"
     }
 
 	return (
-		<main>
-			<div style={barStyle}>
-  				<div style={fillingStyle}>
-                      <p>{props.text}</p>
-				</div>
-			</div>
-		</main>
+        <div style={barStyle}>
+            <div style={fillingStyle}>
+                    <p>{props.text}</p>
+            </div>
+        </div>
 	);
 }
 
