@@ -21,27 +21,39 @@ function Planning() {
 	}
 
 	const inputStyle = {
-
+		border: "solid 1px",
+		borderRadius: "5px",
+		paddingLeft: "10px",
+		marginLeft: "10px",
+		marginBottom: "10px"
 	};
 
  	const buttonStyle = {
-		backgroundColor: "#649552"
+		backgroundColor: "#649552",
+		borderRadius: "10px",
+		marginLeft: "10px",
+		marginBottom: "10px",
+		padding: "2px 10px",
+		color: "#FFFFFF",
+		fontWeight: "bold"
 	};
 
 	return (
 		<main>
 			<h2>Planning</h2>
 			<div className="nextTo">
+				<p>Add a task:</p>
 				<input
-					placeholder="Add a task"
+					placeholder="Enter task info here..."
 					value={input}
 					onChange={(e) => setInput(e.target.value)}
+					style = {inputStyle}
 				/>
-				<button onClick={handleAdd}>+</button>
+				<button onClick={handleAdd} style = {buttonStyle}>+</button>
 			</div>
 
 			<section>
-				<h1>List of todos (we can change the name later)</h1>
+				<h3>TODO-list</h3>
 				{task.map((item, index) => {
 					return (
 						<div>

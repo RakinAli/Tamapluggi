@@ -7,7 +7,6 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	/*min-height: 10vh;*/
 	background-color: #649552;
 	color: #ffffff;
 	padding: 30px 10px;
@@ -16,14 +15,6 @@
 	overflow: hidden;
 	width: 100%;
 }
-
-/*Länkarna till Navigation bar
-.nav-link{
-  width: 50%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}*/
 
 nav a:hover {
 	color: #000000;
@@ -50,7 +41,7 @@ main {
 }
 
 section {
-	padding: 2rem;
+	padding: 1rem 2rem;
 	border-radius: 10px;
 	background-color: #bae7b9;
 	border-style: solid;
@@ -69,7 +60,7 @@ h2 {
 }
 
 h3 {
-	font-size: 1.5rem;
+	font-size: 1.3rem;
 	margin-bottom: 0.5rem;
 }
 
