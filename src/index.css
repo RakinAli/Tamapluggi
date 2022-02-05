@@ -2,16 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /*Navigation Bar CSS */
-.Navbar{
-  display: flex;
-  justify-content: space-around;
-  align-items:center;
-  /*min-height: 10vh;*/
-  background-color: #649552;
-  color: #FFFFFF;
-  padding: 30px 10px;
+.Navbar {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	/*min-height: 10vh;*/
+	background-color: #649552;
+	color: #ffffff;
+	padding: 30px 10px;
+	position: fixed;
+	bottom: 0;
+	overflow: hidden;
+	width: 100%;
 }
 
 /*Länkarna till Navigation bar
@@ -22,48 +25,58 @@
   align-items: center;
 }*/
 
-nav a:hover{
-  color: #000000;
+nav a:hover {
+	color: #000000;
 }
 
 body {
-  /*margin: 0;*/
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  color: #001000;
-  margin: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	/*margin: 0;*/
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+	color: #001000;
+	margin: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
 }
 
-
-main{
-  padding: 0px 30px;
+main {
+	padding: 0px 30px;
 }
 
-h1{
-  font-size: 2rem;
-  padding-top: 1.5rem;
-  font-weight: bold;
+section {
+	padding: 2rem;
+	border-radius: 10px;
+	background-color: #bae7b9;
+	border-style: solid;
 }
 
-h2{
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
+h1 {
+	font-size: 2rem;
+	padding-top: 1.5rem;
+	font-weight: bold;
 }
 
-h3{
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+h2 {
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+	font-size: 1.8rem;
 }
 
+h3 {
+	font-size: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.nextTo {
+	display: flex;
+	flex-direction: row;
+}
 
 /*Kommentera ut för att fylla hela fönstret eller ändra width: för att ändra bredden
 @media(min-width: 450px) {

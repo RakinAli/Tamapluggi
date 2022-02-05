@@ -4,43 +4,57 @@ import { useNavigate } from "react-router-dom";
 function Planning() {
 	const [task, setTask] = useState([]);
 	const [input, setInput] = useState("");
-	const [bool, setBool] = useState(false);
-   let navigate = useNavigate();
-	
-	function handleClick() {
+	let navigate = useNavigate();
+
+	function handleBack() {
 		navigate("/home");
 	}
-	function handleBoolean() {
-		setBool(true);
-    }
-	function handleAdd(){
 
+	function handleAdd() {
+		setTask([...task, input]);
 	}
 
+	function handleDelete(index) {
+		let arrCopy = [...task];
+		arrCopy.splice(index, 1);
+		setTask(arrCopy);
+	}
+
+	const inputStyle = {
+
+	};
+
+ 	const buttonStyle = {
+		backgroundColor: "#649552"
+	};
+
 	return (
-		<div>
-			<h1>Planning</h1>
-
-			{bool ? (
-				<div>
-					<input
-						placeholder="Add a task"
-						value={input}
-						onChange={(e) => setInput(e.target.value)}
-					/>
-					<button onClick = {handleAdd()}>+</button>
-					<button>-</button>
-				</div>
-			) : (
-				""
-			)}
-
-			<div>
-				<button onClick={handleBoolean()}>Add</button>
-				<button onClick={handleClick()}>Back</button>
+		<main>
+			<h2>Planning</h2>
+			<div className="nextTo">
+				<input
+					placeholder="Add a task"
+					value={input}
+					onChange={(e) => setInput(e.target.value)}
+				/>
+				<button onClick={handleAdd}>+</button>
 			</div>
-		</div>
+
+			<section>
+				<h1>List of todos (we can change the name later)</h1>
+				{task.map((item, index) => {
+					return (
+						<div>
+							<div className="nextTo">
+								<p>{item}</p>
+								<button onClick={() => handleDelete(index) } style = {buttonStyle}>Remove</button>
+							</div>
+						</div>
+					);
+				})}
+			</section>
+		</main>
 	);
 }
- 
+
 export default Planning;
