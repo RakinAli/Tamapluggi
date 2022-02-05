@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Statpanel from "./statpanel";
 import SelectButtons from "./selectbuttons";
+import TablePicture from "../Images/study_enter.png";
 
 function Study() {
 	const iconStyle = {
@@ -20,10 +21,8 @@ function Study() {
 				{bool ? (
 					<SelectButtons />
 				) : (
-					<h1 onClick={handleBoolean}>[insert table pic here]</h1>
+					<img src={TablePicture} onClick={handleBoolean} />
 				)}
-
-				<h1>[Insert picture of the small guy here]</h1>
 			</div>
 		</main>
 	);

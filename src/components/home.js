@@ -1,8 +1,5 @@
 import React from "react";
 import Statpanel from "./statpanel";
-import Knowledge from "../Images/Icons/knowledge.svg"
-import Energy from "../Images/Icons/energy.svg"
-import Nonstress from "../Images/Icons/nonstress.svg"
 import Pluggi from "../Images/Pluggi/1yr_walking.gif"
 
 /*Fixat upp Flex box skit inför styling */
