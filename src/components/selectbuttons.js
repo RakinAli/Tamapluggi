@@ -33,9 +33,6 @@ function SelectButtons() {
 					<button variant="success" style={buttonStyle}>
 						Set schedule
 					</button>
-					<button variant="success" style={buttonStyle}>
-						History
-					</button>
 				</div>
 			)}
 		</div>

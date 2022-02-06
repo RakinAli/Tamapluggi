@@ -43,21 +43,21 @@ function Betyg() {
 
 function Statpanel() {
 	const iconStyle = {
-		width: "50px",
+		width: "35px",
 	};
 
 	return (
 		<div className="flex flex-row">
 			<div className="flex flex-col">
-				<div className="flex flex-row p-1">
+				<div className="flex flex-row p-0.5">
 					<img src={Knowledge} alt="" style={iconStyle} />
 					<Statbar fillLevel="75" />
 				</div>
-				<div className="flex flex-row p-1">
+				<div className="flex flex-row p-0.5">
 					<img src={Energy} alt="" style={iconStyle} />
 					<Statbar fillLevel="10" />
 				</div>
-				<div className="flex flex-row p-1">
+				<div className="flex flex-row p-0.5">
 					<img src={Nonstress} alt="" style={iconStyle} />
 					<Statbar fillLevel="50" />
 				</div>

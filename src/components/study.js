@@ -17,17 +17,7 @@ function Study() {
 	return (
 		<main className="flex flex-col pt-3 ">
 			<Statpanel />
-			<div>
-			
-				{bool ? (
-					
-					
-					<SelectButtons />
-					
-				) : (
-					<img src={TablePicture} onClick={handleBoolean} />
-				)}
-			</div>
+			<SelectButtons />
 		</main>
 	);
 }
