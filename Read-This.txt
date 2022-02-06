@@ -1,7 +1,0 @@
-Hämtade React, React-DOM, Tailwind och Bootstrap allt samtidigt. Kolla på deras dokumentationer och ladda
-ner alla nödvändiga extensioners från Visual Studio. De kan underlätta all CSS senare.
-
-Jag har börjat med att fixa Navigation bar logiken -> Detta gör att vi kan ta varsin sida 
-och fixa upp det. Det är lite jobbigt med att fixa upp router så jag kanske inte blir klar det med detta
-
-Inspiration: https://www.figma.com/proto/C6Vu1GW80QEWiWv5MVwg8T/Tamapluggi?node-id=71%3A2773&scaling=scale-down&page-id=1%3A28&starting-point-node-id=71%3A2087
