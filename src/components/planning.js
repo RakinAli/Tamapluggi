@@ -45,13 +45,19 @@ function Planning() {
 		fontWeight: "bold"
 	};
 
+	const flexStyle = {
+		display: "flex",
+		flexWrap: "wrap",
+		flexDirection: "row"
+	}
+
 	return (
 		<main>
 			<h2>Planning</h2>
-			<div className="nextTo">
+			<div style = {flexStyle}>
 				<p>Add a task:</p>
 				<input
-					placeholder="Enter task info here..."
+					placeholder="Enter task info..."
 					value={input}
 					onChange={(e) => setInput(e.target.value)}
 					style = {inputStyle}
@@ -60,7 +66,7 @@ function Planning() {
 			</div>
 
 			<section>
-				<h3>TODO-list</h3>
+				<h3 style = {{fontWeight: "bold"}}>TODO-list</h3>
 				{task.map((item, index) => {
 					return (
 						<div>

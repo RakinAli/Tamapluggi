@@ -38,11 +38,12 @@ code {
 
 main {
 	padding: 0px 30px;
-  margin-bottom: 100px;
+  margin-bottom: 110px;
+  align-items: center;
 }
 
 section {
-	padding: 1rem 2rem;
+	padding: 1rem;
 	border-radius: 10px;
 	background-color: #bae7b9;
 	border-style: solid;
@@ -71,12 +72,11 @@ h3 {
 }
 
 
-/*Kommentera ut för att fylla hela fönstret eller ändra width: för att ändra bredden
 @media(min-width: 450px) {
 
-  body{
-      width: 450px;
+  img{
+      max-width: 400px;
   }
   
 }
-*/
+

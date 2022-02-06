@@ -5,17 +5,13 @@ import Pluggi from "../Images/Pluggi/1yr_walking.gif"
 /*Fixat upp Flex box skit inför styling */
 function Home() {
 
-	const pluggiStyle = {
-		maxWidth: "450px"
-	}
-
 	return (
 		/*This flexbox Column is the main*/
-		<main className="flex flex-col pt-3 ">
+		<main className="flex flex-col pt-3">
 			<Statpanel />
 			<div>
 				<h1>
-					<img src = {Pluggi} alt = "" style = {pluggiStyle}/>
+					<img src = {Pluggi} alt = ""/>
 				</h1>
 			</div>
 		</main>
