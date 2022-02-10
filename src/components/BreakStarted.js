@@ -24,7 +24,7 @@ function BreakStarted(props) {
                             <button variant="success" className="largeButton" onClick={() => breakFunction(5)}>Short break</button>
                             <button variant="success" className="largeButton" onClick={() => breakFunction(30)}>Long break</button>
                             <button variant="success" className="largeButton" onClick={() => setStudyBool(true)}>Study for a few more minutes</button>
-                            <button variant="success" className="largeButton"><Link to="/Home">Done for today</Link></button>
+                            <Link to="/Home"><button variant="success" className="largeButton">Done for today</button></Link>
                         </div>)}
                 </div> 
             )}
