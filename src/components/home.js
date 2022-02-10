@@ -1,5 +1,5 @@
 import React from "react";
-import Statpanel from "./statpanel";
+import Statpanel from "./Statpanel";
 import Pluggi from "../Images/Pluggi/1yr_walking.gif"
 
 /*Fixat upp Flex box skit inför styling */

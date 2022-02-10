@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Statpanel from "./statpanel";
+import Statpanel from "./Statpanel";
 import SelectButtons from "./Selectbuttons";
 import TablePicture from "../Images/study_enter.png";
 

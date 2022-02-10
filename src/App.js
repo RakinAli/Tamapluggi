@@ -1,8 +1,8 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Flashcard from "./components/Flashcard";
-import Home from "./components/home";
-import Planning from "./components/planning";
+import Home from "./components/Home";
+import Planning from "./components/Planning";
 import Statistics from "./components/Statistics";
 import Study from "./components/Study";
 import Header from "./components/Header";
@@ -20,12 +20,12 @@ function App() {
 				<Header />
 				<Routes>
 					<Route path="/Flashcard" exact element={<Flashcard />} />
-					<Route path="/home" exact element={<Home />} />
-					<Route path="/planning" exact element={<Planning />} />
-					<Route path="/statistics" exact element={<Statistics />} />
-					<Route path="/study" element={<Study />} />
-					<Route path="/settings" element={<Settings />} />
-					<Route path="/timer" element={<Timer />} />
+					<Route path="/Home" exact element={<Home />} />
+					<Route path="/Planning" exact element={<Planning />} />
+					<Route path="/Statistics" exact element={<Statistics />} />
+					<Route path="/Study" element={<Study />} />
+					<Route path="/Settings" element={<Settings />} />
+					<Route path="/Timer" element={<Timer />} />
 				</Routes>
 				<Navbar />
 			</div>
