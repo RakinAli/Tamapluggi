@@ -7,15 +7,6 @@ function SelectButtons() {
 		width: "50px",
 	};
 
-	const buttonStyle = {
-		backgroundColor: "#649552",
-		borderRadius: "10px",
-		padding: "10px",
-		color: "#FFFFFF",
-		fontWeight: "bold",
-		width: "200px",
-		marginBottom: "10px",
-	};
 	const [startBoolean, setStartBoolean] = useState(false);
 	const [scheduleBoolean, setScheduleBoolean] = useState(false);
 	const [buttonPressed, setButtonPressed] = useState(false);	
@@ -51,19 +42,18 @@ function SelectButtons() {
 			{buttonPressed ? "" : (
 				<div className="flex flex-col">
 					<h1>Study</h1>
-					<button ariant="success" onClick={startPressed} style={buttonStyle}>
+					<button variant="success" onClick={startPressed} className = "largeButton">
 						Start
 					</button>
 					<button
 						variant="success"
 						onClick={setSchedulePressed}
-						style={buttonStyle}
+						className = "largeButton"
 					>
 						Set schedule
 					</button>
 				</div>
-			)}
-			
+			)}			
 		</div>
 	);
 }

@@ -9,4 +9,8 @@ och kort med unika ID, implementera att de olika kategorierna kan ändras, IE, t
 
 3) När man trycker på Restart. Det ska poppas upp en "Are you sure" prompt till user 
 
+4) Spara att göra listan så att den inte försvinner när man går bort från sidan
+
+5) Gör så att popup när pausen i study är slut inte dyker upp två gånger
+
 

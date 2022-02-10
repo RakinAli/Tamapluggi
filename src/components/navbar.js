@@ -15,7 +15,7 @@ function Navbar() {
 
 	return (
 		<nav className="Navbar">
-			<Link to="/home">
+			<Link to="/Home">
 				<img
 					// Tried to add hoover effect with tailwind
 					className="hover:bg-slate-800"
@@ -24,7 +24,7 @@ function Navbar() {
 					style={iconStyle}
 				/>
 			</Link>
-			<Link to="/study">
+			<Link to="/Study">
 				<img
 					// Tried to add hoover effect with tailwind
 					className="hover:bg-slate-800"
@@ -42,7 +42,7 @@ function Navbar() {
 					style={iconStyle}
 				/>
 			</Link>
-			<Link to="/planning">
+			<Link to="/Planning">
 				<img
 					// Tried to add hoover effect with tailwind
 					className="hover:bg-slate-800"
@@ -51,7 +51,7 @@ function Navbar() {
 					style={iconStyle}
 				/>
 			</Link>
-			<Link to="/stats">
+			<Link to="/Stats">
 				<img
 					// Tried to add hoover effect with tailwind
 					className="hover:bg-slate-800"

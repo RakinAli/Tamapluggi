@@ -38,13 +38,12 @@ code {
 
 main {
 	padding: 0px 30px;
-  margin-bottom: 110px;
-  align-items: center;
+  	margin-bottom: 110px;
+  	align-items: center;
 }
 
 section {
 	padding: 1rem;
-	border-radius: 10px;
 	background-color: #bae7b9;
 	border-style: solid;
 }
@@ -72,6 +71,17 @@ input{
 	padding-left: 10px;
 	margin-left: 10px;
 	margin-bottom: 10px;
+}
+
+.popUpWindow{
+	background-color: #bae7b9;
+	padding: 2rem;
+	border-radius: 10px;
+	font-weight: bold;
+	align-items: center;
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
 }
 
 .nextTo {
