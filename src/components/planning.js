@@ -55,7 +55,7 @@ function Planning() {
 		<main>
 			<h2>Planning</h2>
 			<div style = {flexStyle}>
-				<p>Add a task:</p>
+				<label>Add a task:</label>
 				<input
 					placeholder="Enter task info..."
 					value={input}
