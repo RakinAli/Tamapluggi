@@ -1,6 +1,6 @@
 import React from "react";
 import Statpanel from "./statpanel";
-import SelectButtons from "./selectbuttons";
+import SelectButtons from "./Selectbuttons";
 
 function StudySelect() {
 	const iconStyle = {

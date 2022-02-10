@@ -1,6 +1,6 @@
 import React from "react";
 
-function Stats() {
+function Statistics() {
 	return (
 		<main>
 			<h2>Stats</h2>
@@ -8,4 +8,4 @@ function Stats() {
 	);
 }
 
-export default Stats;
+export default Statistics;

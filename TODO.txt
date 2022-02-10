@@ -1,0 +1,10 @@
+TODO LIST: 
+
+1) 
+I filen SetSchedule: Fixa input så att den tar emot siffror. Vi har lagt så att den tar
+en textbox istället
+
+2) Skapa kategorier som håller olika listor, gör så att man kan skapa nya kategorier som visas med searchviewform 
+och kort med unika ID, implementera att de olika kategorierna kan ändras, IE, ta bort specifika kort i en kategori.
+
+

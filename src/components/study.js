@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Statpanel from "./statpanel";
-import SelectButtons from "./selectbuttons";
+import SelectButtons from "./Selectbuttons";
 import TablePicture from "../Images/study_enter.png";
 
 function Study() {

@@ -1,12 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import Flashcard from "./components/Flashcard";
 import Home from "./components/home";
 import Planning from "./components/planning";
-import Stats from "./components/stats";
-import Study from "./components/study";
-import Header from "./components/header";
+import Statistics from "./components/Statistics";
+import Study from "./components/Study";
+import Header from "./components/Header";
+import Timer from "./components/Timer";
 
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Settings from "./components/Settings";
@@ -22,9 +22,10 @@ function App() {
 					<Route path="/Flashcard" exact element={<Flashcard />} />
 					<Route path="/home" exact element={<Home />} />
 					<Route path="/planning" exact element={<Planning />} />
-					<Route path="/stats" exact element={<Stats />} />
+					<Route path="/statistics" exact element={<Statistics />} />
 					<Route path="/study" element={<Study />} />
 					<Route path="/settings" element={<Settings />} />
+					<Route path="/timer" element={<Timer />} />
 				</Routes>
 				<Navbar />
 			</div>
