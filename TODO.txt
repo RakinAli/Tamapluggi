@@ -7,4 +7,6 @@ en textbox istället
 2) Skapa kategorier som håller olika listor, gör så att man kan skapa nya kategorier som visas med searchviewform 
 och kort med unika ID, implementera att de olika kategorierna kan ändras, IE, ta bort specifika kort i en kategori.
 
+3) När man trycker på Restart. Det ska poppas upp en "Are you sure" prompt till user 
+
 

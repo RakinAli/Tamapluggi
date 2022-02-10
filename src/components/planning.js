@@ -27,24 +27,6 @@ function Planning() {
 		setTask(arrCopy);
 	}
 
-	const inputStyle = {
-		border: "solid 1px",
-		borderRadius: "5px",
-		paddingLeft: "10px",
-		marginLeft: "10px",
-		marginBottom: "10px"
-	};
-
- 	const buttonStyle = {
-		backgroundColor: "#649552",
-		borderRadius: "10px",
-		marginLeft: "10px",
-		marginBottom: "10px",
-		padding: "2px 10px",
-		color: "#FFFFFF",
-		fontWeight: "bold"
-	};
-
 	const flexStyle = {
 		display: "flex",
 		flexWrap: "wrap",
@@ -60,9 +42,8 @@ function Planning() {
 					placeholder="Enter task info..."
 					value={input}
 					onChange={(e) => setInput(e.target.value)}
-					style = {inputStyle}
 				/>
-				<button onClick={handleAdd} style = {buttonStyle}>+</button>
+				<button onClick={handleAdd} className = "smallButton">+</button>
 			</div>
 
 			<section>
@@ -72,7 +53,7 @@ function Planning() {
 						<div>
 							<div className="nextTo">
 								<p>{item}</p>
-								<button onClick={() => handleDelete(index) } style = {buttonStyle}>Done</button>
+								<button onClick={() => handleDelete(index) } className = "smallButton">Done</button>
 							</div>
 						</div>
 					);
