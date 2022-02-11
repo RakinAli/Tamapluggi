@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BreakStarted from "./BreakStarted";
+import studyBook from "../Images/study_book.svg"
+
 function Timer(props) {
 	
 	let minute = 25;
@@ -20,6 +22,7 @@ function Timer(props) {
 	const [minutes, setMinutes] = useState(minute);
 	const [startBool, setStartBool] = useState(true);
 	const [stopBool, setStopBool] = useState(false);
+	
 	function handleStop() {
 		setStartBool(false);
 		clearInterval(clock);
@@ -58,12 +61,13 @@ function Timer(props) {
 	});
 
 	const textStyle = {
-		fontSize: "1.5rem",
+		fontSize: "1.2rem",
 		textAlign: "center",
+    	marginTop: "10px"
 	};
 
 	const clockStyle = {
-		fontSize: "4rem",
+		fontSize: "3rem",
 		textAlign: "center",
 	};
 
@@ -74,29 +78,21 @@ function Timer(props) {
 			): (
 				<div>
 					<h2>Study</h2>
+					<img src={studyBook} style={{width: "150px", margin: "auto"}}/>
 					<p style={textStyle}>Break in:</p>
 					<p style={clockStyle}>
 						{minutes < 10 ? "0" + minutes : minutes}:
 						{seconds < 10 ? "0" + seconds : seconds}
 					</p>
-					<button
-						className="px-2 py-2 m-1 font-bold text-white bg-red-500 rounded-lg hover:bg-red-700"
-						onClick={handleStop}
-					>
-						Stop
-					</button>
-					<button
-						className="px-2 py-2 m-1 font-bold text-white bg-green-400 rounded-lg hover:bg-green-700"
-						onClick={handleStart}
-					>
-						Start
-					</button>
-					<button
-						className="px-2 py-2 m-1 font-bold text-white bg-gray-400 rounded-lg hover:bg-gray-700"
-						onClick={handleRestart}
-					>
-						Restart
-					</button>
+					{startBool ?(
+							<><button className="controlButton red" onClick={handleStop}>Stop</button>
+							<button className="controlButton inactive" onClick={handleStart}>Start</button></>
+						):(
+							<><button className="controlButton inactive" onClick={handleStop}>Stop</button>
+							<button className="controlButton green" onClick={handleStart}>Start</button></>
+						)
+					}
+					<button className="controlButton yellow" onClick={handleRestart}>Restart</button>
 				</div>
 			)}
 			</div>

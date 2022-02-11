@@ -117,14 +117,6 @@ input{
 
 }
 
-.largeButton:hover{
-	background-color: #245214;
-}
-
-.largeButton:active{
-	background-color: #bae7b9;
-}
-
 .smallButton{
 	background-color: #649552;
 	border-radius: 10px;
@@ -135,12 +127,46 @@ input{
 	font-Weight: bold;
 }
 
-.smallButton:hover{
+.controlButton{
+	background-color: #649552;
+	border-radius: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+	color: #FFFFFF;
+	font-Weight: bold;
+}
+
+.largeButton:hover, .smallButton:hover, .controlButton:hover{
 	background-color: #245214;
 }
 
-.smallButton:active{
+.largeButton:active, .smallButton:active, .controlButton:active{
 	background-color: #bae7b9;
+}
+
+.red{
+	background-color: #df2f39;
+}
+
+.red:hover, .red:active{
+	background-color: #ff515a;
+}
+
+.green{
+	background-color: #6CBB6A;
+}
+
+.green:hover, .green:active{
+	background-color: #8be48a;
+}
+
+.yellow{
+	background-color: #e6b924;
+}
+
+.yellow:hover, .yellow:active{
+	background-color: #eecb5a;
 }
 
 .inactive, .inactive:hover{

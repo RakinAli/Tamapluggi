@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="60mm" height="60mm" version="1.1" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-<g transform="matrix(1.0397 0 0 1.0588 .85635 -4.4424)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round">
-<rect x="4.9315" y="18.288" width="44.589" height="27.123" rx="1.2162e-16" ry="1.7645e-16" stroke-dashoffset="34.016" style="paint-order:stroke markers fill"/>
-<rect x="49.505" y="26.8" width="3.3904" height="9.4521" rx="1.2162e-16" ry="1.7645e-16" stroke-dashoffset="34.016" style="paint-order:stroke markers fill"/>
-<path d="m10.171 37.705 13.151-13.87 7.8082 7.6027 12.945-7.8082-13.048 15.616-8.2192-7.5z"/>
-</g>
-</svg>
