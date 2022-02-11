@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import Timer from './Timer';
+import snackImage from "../Images/snack.svg"
 
 function Break(props) {
     let clock;
@@ -31,12 +32,13 @@ function Break(props) {
     });
 
 	const textStyle = {
-		fontSize: "1.5rem",
+		fontSize: "1.2rem",
 		textAlign: "center",
+    marginTop: "10px"
 	};
 
 	const clockStyle = {
-		fontSize: "4rem",
+		fontSize: "3rem",
 		textAlign: "center",
 	};
     
@@ -47,6 +49,7 @@ function Break(props) {
           ): (
             <div>
               <h2>Taking a break:</h2>
+              <img src={snackImage} style={{width: "150px", margin: "auto"}}/>
               <p style={textStyle}>Time to study in:</p>
               <p style={clockStyle}>
               {minutes < 10 ? "0" + minutes : minutes}:
