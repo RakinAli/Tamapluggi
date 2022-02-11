@@ -16,9 +16,6 @@ och kort med unika ID, implementera att de olika kategorierna kan ändras, IE, t
 
 5) Gör så att popup när pausen i study är slut inte dyker upp två gånger
 
-6) Gör så att det är tydligare att värdet är sparat i set schedule, typ att knappen ändrar färg
- så att den ser aktiv ut när man har skrivit något som inte är sparat och disabled ut annars
-
 7) Gör så att start och stop i study antingen är samma knapp som ändrar utseende alternativt att 
 den ena ser disabled ut och den andra ser aktiv ut och det byts när man startar eller stannar 
 

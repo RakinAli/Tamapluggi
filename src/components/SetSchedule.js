@@ -8,6 +8,7 @@ function SetSchedule() {
 	const [onChangeMinutes, setOnChangeMinutes] = useState(0);
 	const [onChangeSeconds, setOnChangeSeconds] = useState(0);
 	const [savedTimer, setSavedTimer] = useState(false);
+	
 	function timerPressed() {
 		if(savedTimer) {
 			setTimerBool(true);
@@ -16,10 +17,11 @@ function SetSchedule() {
 			alert("Do not forget to save!");
 		}
 	}
+
 	function save(){
-	setSavedTimer(true);
-    setSecond(onChangeSeconds);
-	setMinute(onChangeMinutes);
+		setSavedTimer(true);
+		setSecond(onChangeSeconds);
+		setMinute(onChangeMinutes);
 	}
 
 	return (
@@ -33,21 +35,19 @@ function SetSchedule() {
 					<input
 						type="number"
 						name="Timer"
-						onChange={(e) => setOnChangeMinutes(e.target.value)}						
+						onChange={(e) => {setOnChangeMinutes(e.target.value); setSavedTimer(false);}}						
 					/>
 				
 						<label>Set timer seconds:</label>
 						<input
 							type="number"
 							name="Timer"
-							onChange={(e) => setOnChangeSeconds(e.target.value)}
+							onChange={(e) => {setOnChangeSeconds(e.target.value); setSavedTimer(false);}}
 						/>
-						<button
-							onClick={save}
-							className = "largeButton"
-						>
-							Save timer
-						</button>
+						{savedTimer ?
+							(<button onClick={save} className = "largeButton inactive">Save timer</button>) :
+							(<button onClick={save} className = "largeButton">Save timer</button>)
+						}
 					<button onClick={timerPressed} className = "largeButton" >Timer</button>
 				</div>
 			)}
