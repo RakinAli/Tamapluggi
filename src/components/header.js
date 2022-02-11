@@ -7,14 +7,14 @@ import settingsIcon from "../Images/Icons/settings.svg"
 function Header() {
 
 	const iconStyle = {
-		width: "50px"
+		width: "40px"
 	}
 
 	return (
-			<header className="flex flex-row justify-between Header">
-				<h1>Tamapluggi</h1>
-				<Link to = "settings"><img src={settingsIcon} alt="" style={iconStyle} /></Link>
-			</header>
+		<header>
+			<h1>Tamapluggi</h1>
+			<Link to = "settings"><img src={settingsIcon} alt="" style={iconStyle} /></Link>
+		</header>
 	);
 }
 

@@ -10,9 +10,8 @@ function Home() {
 		<main className="flex flex-col pt-3">
 			<Statpanel />
 			<div>
-				<h1>
-					<img src = {Pluggi} alt = ""/>
-				</h1>
+				<h2>Home</h2>
+				<img src = {Pluggi} alt = ""/>
 			</div>
 		</main>
 	);

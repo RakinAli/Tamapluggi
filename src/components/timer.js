@@ -73,6 +73,7 @@ function Timer(props) {
 				<BreakStarted setMinutes = {setMinutes}/>
 			): (
 				<div>
+					<h2>Study</h2>
 					<p style={textStyle}>Break in:</p>
 					<p style={clockStyle}>
 						{minutes < 10 ? "0" + minutes : minutes}:

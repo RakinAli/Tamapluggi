@@ -41,7 +41,7 @@ function SelectButtons() {
 			)}
 			{buttonPressed ? "" : (
 				<div className="flex flex-col">
-					<h1>Study</h1>
+					<h2>Study</h2>
 					<button variant="success" onClick={startPressed} className = "largeButton">
 						Start
 					</button>
@@ -50,7 +50,7 @@ function SelectButtons() {
 						onClick={setSchedulePressed}
 						className = "largeButton"
 					>
-						Set schedule
+						Set study timer
 					</button>
 				</div>
 			)}			

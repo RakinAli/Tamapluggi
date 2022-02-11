@@ -3,7 +3,8 @@ import React from "react";
 function Statistics() {
 	return (
 		<main>
-			<h2>Stats</h2>
+			<h2>Statistics</h2>
+			<p>Hej :)</p>
 		</main>
 	);
 }

@@ -11,6 +11,8 @@ function Statbar(props) {
 		backgroundColor: "#C4C4C4",
 		margin: "5px",
 		width: "150px",
+		marginLeft: "20px",
+		marginRight: "20px"
 	};
 
 	const fillingStyle = {
@@ -21,9 +23,7 @@ function Statbar(props) {
 
 	return (
 		<div style={barStyle}>
-			<div style={fillingStyle}>
-				<p>{props.text}</p>
-			</div>
+			<div style={fillingStyle}></div>
 		</div>
 	);
 }
@@ -33,7 +33,8 @@ function Betyg() {
     let betyg = "C"
 
     const letterStyle = {
-        fontSize: "6rem"
+        fontSize: "4rem",
+		fontWeight: "bold"
     }
 
 	return (
@@ -43,21 +44,21 @@ function Betyg() {
 
 function Statpanel() {
 	const iconStyle = {
-		width: "35px",
+		width: "30px",
 	};
 
 	return (
-		<div className="flex flex-row">
+		<div className="statPanel">
 			<div className="flex flex-col">
-				<div className="flex flex-row p-0.5">
+				<div className="flex flex-row p-0.25">
 					<img src={Knowledge} alt="" style={iconStyle} />
 					<Statbar fillLevel="75" />
 				</div>
-				<div className="flex flex-row p-0.5">
+				<div className="flex flex-row p-0.25">
 					<img src={Energy} alt="" style={iconStyle} />
 					<Statbar fillLevel="10" />
 				</div>
-				<div className="flex flex-row p-0.5">
+				<div className="flex flex-row p-0.25">
 					<img src={Nonstress} alt="" style={iconStyle} />
 					<Statbar fillLevel="50" />
 				</div>

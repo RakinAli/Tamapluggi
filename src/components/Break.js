@@ -46,6 +46,7 @@ function Break(props) {
               <Timer/>
           ): (
             <div>
+              <h2>Taking a break:</h2>
               <p style={textStyle}>Time to study in:</p>
               <p style={clockStyle}>
               {minutes < 10 ? "0" + minutes : minutes}:

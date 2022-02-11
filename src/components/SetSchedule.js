@@ -28,6 +28,7 @@ function SetSchedule() {
 				<Timer minute={minute} second = {second} />
 			) : (
 				<div className="flex flex-col">
+					<h2>Set study timer</h2>
 					<label>Set timer minutes:</label>
 					<input
 						type="number"

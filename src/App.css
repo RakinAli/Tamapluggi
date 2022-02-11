@@ -3,14 +3,6 @@ App{
   width: 100vh;
 }
 
-Header{
-  padding: 30px;
-  background-color: #6CBB6A;
-  color: #FFFFFF;
-  width: 100%;
-}
-
-
 .card{
   display:flex;
   justify-content:center;
