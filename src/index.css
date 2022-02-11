@@ -99,6 +99,7 @@ input{
 	margin-bottom: 20px;
 	display: flex;
 	flex-direction: column;
+	box-shadow: 0px 5px 10px rgb(0,0,0,0.3);
 }
 
 .nextTo {
@@ -137,12 +138,9 @@ input{
 	font-Weight: bold;
 }
 
-.largeButton:hover, .smallButton:hover, .controlButton:hover{
+.largeButton:hover, .smallButton:hover, .controlButton:hover,
+ .largeButton:active, .smallButton:active, .controlButton:active{
 	background-color: #245214;
-}
-
-.largeButton:active, .smallButton:active, .controlButton:active{
-	background-color: #bae7b9;
 }
 
 .red{
@@ -171,7 +169,6 @@ input{
 
 .inactive, .inactive:hover{
 	background-color: #C4C4C4;
-
 }
 
 .navIcon{

@@ -45,10 +45,10 @@ function SetSchedule() {
 							onChange={(e) => {setOnChangeSeconds(e.target.value); setSavedTimer(false);}}
 						/>
 						{savedTimer ?
-							(<button onClick={save} className = "largeButton inactive">Save timer</button>) :
-							(<button onClick={save} className = "largeButton">Save timer</button>)
+							(<button onClick={save} className = "largeButton inactive">Timer set</button>) :
+							(<button onClick={save} className = "largeButton">Set timer</button>)
 						}
-					<button onClick={timerPressed} className = "largeButton" >Timer</button>
+					<button onClick={timerPressed} className = "largeButton" >Start timer</button>
 				</div>
 			)}
 		</div>
