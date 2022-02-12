@@ -6,13 +6,13 @@ import Nonstress from "../Images/Icons/nonstress.svg";
 function Statbar(props) {
 	let fill = 100;
 	fill = props.fillLevel;
-
+	
 	const barStyle = {
 		backgroundColor: "#C4C4C4",
 		margin: "5px",
 		width: "150px",
 		marginLeft: "20px",
-		marginRight: "20px"
+		marginRight: "20px",
 	};
 
 	const fillingStyle = {
@@ -29,23 +29,27 @@ function Statbar(props) {
 }
 
 function Betyg() {
+	let betyg = "C";
 
-    let betyg = "C"
+	const letterStyle = {
+		fontSize: "4rem",
+		fontWeight: "bold",
+	};
 
-    const letterStyle = {
-        fontSize: "4rem",
-		fontWeight: "bold"
-    }
-
-	return (
-		<p style = {letterStyle}>{betyg}</p>
-	);
+	return <p style={letterStyle}>{betyg}</p>;
 }
 
-function Statpanel() {
+function Statpanel(props) {
 	const iconStyle = {
 		width: "30px",
 	};
+	let fillLevel;
+	if (props.energyFill === undefined) {
+		fillLevel = props.energyFillStudy;
+	}
+	if (props.energyFillStudy === undefined) {
+		fillLevel = props.energyFill;
+	}
 
 	return (
 		<div className="statPanel">
@@ -60,7 +64,7 @@ function Statpanel() {
 				</div>
 				<div className="flex flex-row p-0.25">
 					<img src={Nonstress} alt="" style={iconStyle} />
-					<Statbar fillLevel="50" />
+					<Statbar fillLevel={fillLevel} />
 				</div>
 			</div>
 			<Betyg />

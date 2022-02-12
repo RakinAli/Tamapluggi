@@ -3,12 +3,12 @@ import Statpanel from "./Statpanel";
 import Pluggi from "../Images/Pluggi/1yr_walking.gif"
 
 /*Fixat upp Flex box skit inför styling */
-function Home() {
+function Home(props) {
 
 	return (
 		/*This flexbox Column is the main*/
 		<main className="flex flex-col pt-3">
-			<Statpanel />
+			<Statpanel energyFill = {props.energyFill} />
 			<div>
 				<h2>Home</h2>
 				<img src = {Pluggi} alt = ""/>

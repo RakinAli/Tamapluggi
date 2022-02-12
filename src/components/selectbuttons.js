@@ -1,27 +1,26 @@
 import React, { useState } from "react";
 import Timer from "./Timer";
 import SetSchedule from "./SetSchedule";
-function SelectButtons() {
-	
+function SelectButtons(props) {
 	const iconStyle = {
 		width: "50px",
 	};
 
 	const [startBoolean, setStartBoolean] = useState(false);
 	const [scheduleBoolean, setScheduleBoolean] = useState(false);
-	const [buttonPressed, setButtonPressed] = useState(false);	
+	const [buttonPressed, setButtonPressed] = useState(false);
 	const [minutes, setMinutes] = useState(25);
 
 	function startPressed() {
-		setButtonPressed(true)
+		setButtonPressed(true);
 		setStartBoolean(true);
 	}
 	function setSchedulePressed() {
 		setButtonPressed(true);
 		setScheduleBoolean(true);
 	}
-	
-		/* Logiken redan är 
+
+	/* Logiken redan är 
 		Har vi tryckt på någon knappt?
 			Om ja: är det Timer -> Timer
 			Om ja: är det SetSchedule -> Schedule
@@ -30,34 +29,37 @@ function SelectButtons() {
 	return (
 		<div className="flex flex-col pt-3">
 			{startBoolean ? (
-				<Timer />
+				<Timer
+					energyFill={props.energyFill}
+					setEnergyFill={props.setEnergyFill}
+				/>
 			) : (
 				""
 			)}
-			{scheduleBoolean ? (
-				<SetSchedule />
-			) : (
+			{scheduleBoolean ? <SetSchedule /> : ""}
+			{buttonPressed ? (
 				""
-			)}
-			{buttonPressed ? "" : (
+			) : (
 				<div className="flex flex-col">
 					<h2>Study</h2>
-					<button variant="success" onClick={startPressed} className = "largeButton">
+					<button
+						variant="success"
+						onClick={startPressed}
+						className="largeButton"
+					>
 						Start
 					</button>
 					<button
 						variant="success"
 						onClick={setSchedulePressed}
-						className = "largeButton"
+						className="largeButton"
 					>
 						Set study timer
 					</button>
 				</div>
-			)}			
+			)}
 		</div>
 	);
 }
-
-
 
 export default SelectButtons;
