@@ -8,6 +8,17 @@ function BreakStarted(props) {
 	const [breakBool, setBreakBool] = useState(false);
 	const [studyBool, setStudyBool] = useState(false);
 
+	let shortBreak = 5;
+	let longBreak = 30;
+
+	if(props.shortBreak !== undefined){
+		shortBreak = props.shortBreak;
+	}
+
+	if(props.longBreak !== undefined){
+		longBreak = props.longBreak;
+	}
+
 	function breakFunction(time) {
 		setBreakTime(time);
 		setBreakBool(true);
@@ -16,7 +27,13 @@ function BreakStarted(props) {
 	return (
 		<div>
 			{studyBool ? (
-				<Timer studyTime={5} />
+				<Timer
+					studyTime={5}
+					minute={props.minute}
+					second = {props.second}
+					shortBreak = {props.shortBreak}
+					longBreak = {props.longBreak}
+				/>
 			) : (
 				<div>
 					{breakBool ? (
@@ -31,14 +48,14 @@ function BreakStarted(props) {
 							<button
 								variant="success"
 								className="largeButton"
-								onClick={() => breakFunction(5)}
+								onClick={() => breakFunction(shortBreak)}
 							>
 								Short break
 							</button>
 							<button
 								variant="success"
 								className="largeButton"
-								onClick={() => breakFunction(30)}
+								onClick={() => breakFunction(longBreak)}
 							>
 								Long break
 							</button>
@@ -49,7 +66,7 @@ function BreakStarted(props) {
 							>
 								Study for a few more minutes
 							</button>
-							<Link to="/Home">
+							<Link to="/">
 								<button variant="success" className="largeButton">
 									Done for today
 								</button>

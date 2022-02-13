@@ -3,14 +3,13 @@ import BreakStarted from "./BreakStarted";
 import studyBook from "../Images/study_book.svg";
 
 function Timer(props) {
-	let minute = 0;
-	let second = 5;
+	let minute = 25;
+	let second = 0;
 
 	if (props.studyTime !== undefined) {
 		minute = props.studyTime;
 	}
-
-	if (props.minute !== undefined) {
+	else if (props.minute !== undefined) {
 		minute = props.minute;
 	}
 	if (props.second !== undefined) {
@@ -42,7 +41,7 @@ function Timer(props) {
 	let clock;
 	useEffect(() => {
 		if (startBool) {
-			if (minutes === 0 && seconds === 0) {
+			if (minutes <= 0 && seconds <= 0) {
 				setStopBool(true);
 			}
 			clock = setInterval(() => {
@@ -79,8 +78,12 @@ function Timer(props) {
 	return (
 		<div>
 			{stopBool ? (
-				<BreakStarted setMinutes={setMinutes} energyFill = {props.energyFill}
-				setEnergyFill = {props.setEnergyFill}
+				<BreakStarted 
+					setMinutes={setMinutes} 
+					energyFill = {props.energyFill}
+					setEnergyFill = {props.setEnergyFill}
+					shortBreak = {props.shortBreak}
+					longBreak = {props.longBreak}
 				 />
 			) : (
 				<div>

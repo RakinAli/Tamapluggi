@@ -9,7 +9,7 @@ function SelectButtons(props) {
 	const [startBoolean, setStartBoolean] = useState(false);
 	const [scheduleBoolean, setScheduleBoolean] = useState(false);
 	const [buttonPressed, setButtonPressed] = useState(false);
-	const [minutes, setMinutes] = useState(25);
+	/*const [minutes, setMinutes] = useState(25);*/
 
 	function startPressed() {
 		setButtonPressed(true);
@@ -32,11 +32,29 @@ function SelectButtons(props) {
 				<Timer
 					energyFill={props.energyFill}
 					setEnergyFill={props.setEnergyFill}
+					minute={props.minute}
+					setMinute={props.setMinute}
+					second={props.second}
+					setSecond={props.setSecond}
+					shortBreak = {props.shortBreak}
+					setShortBreak = {props.setShortBreak}
+					longBreak = {props.longBreak}
+					setLongBreak = {props.setLongBreak}
 				/>
 			) : (
 				""
 			)}
-			{scheduleBoolean ? <SetSchedule /> : ""}
+			{scheduleBoolean ? <SetSchedule 
+				minute={props.minute}
+				setMinute={props.setMinute}
+				second={props.second}
+				setSecond={props.setSecond}
+				shortBreak = {props.shortBreak}
+				setShortBreak = {props.setShortBreak}
+				longBreak = {props.longBreak}
+				setLongBreak = {props.setLongBreak}
+			
+			/> : ""}
 			{buttonPressed ? (
 				""
 			) : (

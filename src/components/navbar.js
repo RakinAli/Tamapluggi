@@ -13,7 +13,7 @@ function Navbar() {
 	/*<Link to="/Home"><HomeIcon/></Link>*/
 	return (
 		<nav>
-			<Link to="/Home"><img src={homeIcon} className="navIcon"/></Link>
+			<Link to="/"><img src={homeIcon} className="navIcon"/></Link>
 			<Link to="/Study"><img src={studyIcon} className="navIcon"/></Link>
 			<Link to="/Flashcard"><img src={flashcardsIcon} className="navIcon"/></Link>
 			<Link to="/Planning"><img src={planningIcon} className="navIcon"/></Link>

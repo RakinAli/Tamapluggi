@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Planning() {
-	const [task, setTask] = useState([]);
+function Planning(props) {
+	//const [task, setTask] = useState([]);
 	const [input, setInput] = useState("");
 	let navigate = useNavigate();
-
+	
 	function handleBack() {
 		navigate("/home");
 	}
@@ -15,16 +15,16 @@ function Planning() {
 			return;
 		}
 		else{
-			setTask([...task, input]);
+			props.setTask([...props.task, input]);
 			setInput("");
 		}
 		
 	}
 
 	function handleDelete(index) {
-		let arrCopy = [...task];
+		let arrCopy = [...props.task];
 		arrCopy.splice(index, 1);
-		setTask(arrCopy);
+		props.setTask(arrCopy);
 	}
 
 	const flexStyle = {
@@ -48,9 +48,10 @@ function Planning() {
 
 			<section>
 				<h3 style = {{fontWeight: "bold"}}>TODO-list</h3>
-				{task.map((item, index) => {
+				{props.task.map((item, index) => {
 					return (
 						<div>
+							
 							<div className="nextTo">
 								<p>{item}</p>
 								<button onClick={() => handleDelete(index) } className = "smallButton">Done</button>

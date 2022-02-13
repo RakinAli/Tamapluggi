@@ -13,18 +13,35 @@ import Settings from "./components/Settings";
 
 /* Hann inte göra klart Router-> Fixar klart Router idag*/
 function App() {
-   const [energyFill, setEnergyFill] = useState(50);
+   	const [energyFill, setEnergyFill] = useState(50);
+   	const [task, setTask] = useState([]);
+   	const [minute, setMinute] = useState(25);
+	const [second, setSecond] = useState(0);
+	const [shortBreak, setShortBreak] = useState(5);
+	const [longBreak, setLongBreak] = useState(30);
+
 	return (
 		<Router>
 			<div className="App">
 				<Header />
 				<Routes>
 					<Route path="/Flashcard" exact element={<Flashcard />} />
-					<Route path="/Home" exact element={<Home energyFill = {energyFill}/>} />
-					<Route path="/Planning" exact element={<Planning />} />
+					<Route path="/" exact element={<Home energyFill = {energyFill}/>} />
+					<Route path="/Planning" exact element={<Planning  task = {task}
+						setTask = {setTask}
+					/>} />
 					<Route path="/Statistics" exact element={<Statistics />} />
 					<Route path="/Study" element={<Study energyFill = {energyFill}
-					 setEnergyFill = {setEnergyFill} />}/>
+						setEnergyFill = {setEnergyFill} 
+						minute = {minute}
+						setMinute= {setMinute}
+						second = {second}
+						setSecond = {setSecond}
+						shortBreak = {shortBreak}
+						setShortBreak = {setShortBreak}
+						longBreak = {longBreak}
+						setLongBreak = {setLongBreak}
+					 />}/>
 				   <Route path="/Settings" element={<Settings />} />
 				</Routes>
 				<Navbar />
