@@ -1,15 +1,46 @@
 import React, { useEffect, useState } from "react";
-import BreakStarted from "./BreakStarted";
+import { Link } from "react-router-dom";
+import Statpanel from "./Statpanel";
 import studyBook from "../Images/study_book.svg";
+
+function BreakStarted(props) {	
+	let shortBreak = 5;
+	let longBreak = 30;
+
+	if(props.shortBreak !== undefined){shortBreak = props.shortBreak;}
+	if(props.longBreak !== undefined){longBreak = props.longBreak;}
+
+	function breakFunction(time) {
+		props.setBreakTime(time);
+	}
+	
+	function studyFunction(time){
+		props.setMinutes(time);
+		props.setStopBool(false);
+	}
+
+	return (
+		<div className="popUpWindow">
+			<h3>Time for a break?</h3>
+			<Link to="../Break">
+				<button className="largeButton" onClick={() => breakFunction(shortBreak)}>Short break</button>
+			</Link>
+			<Link to="../Break">
+				<button className="largeButton" onClick={() => breakFunction(longBreak)}>Long break</button>
+			</Link>
+			<button className="largeButton" onClick={() => studyFunction(1)}>
+				Study for a few more minutes
+			</button>
+			<Link to="/"><button className="largeButton">Done for today</button></Link>
+		</div>
+	);
+}
 
 function Timer(props) {
 	let minute = 25;
 	let second = 0;
 
-	if (props.studyTime !== undefined) {
-		minute = props.studyTime;
-	}
-	else if (props.minute !== undefined) {
+	if (props.minute !== undefined) {
 		minute = props.minute;
 	}
 	if (props.second !== undefined) {
@@ -59,66 +90,41 @@ function Timer(props) {
 		}
 	});
 
-	const textStyle = {
-		fontSize: "1.2rem",
-		textAlign: "center",
-		marginTop: "10px",
-	};
-
-	const clockStyle = {
-		fontSize: "3rem",
-		textAlign: "center",
-	};
-
-	/* * Logiken är följande: *
-	
-		
-	
-	*/
 	return (
-		<div>
+		<main>
+			<Statpanel/>
 			{stopBool ? (
 				<BreakStarted 
-					setMinutes={setMinutes} 
-					energyFill = {props.energyFill}
-					setEnergyFill = {props.setEnergyFill}
+					setMinutes={setMinutes}
+					setStopBool={setStopBool}
 					shortBreak = {props.shortBreak}
 					longBreak = {props.longBreak}
+					setBreakTime = {props.setBreakTime}
 				 />
 			) : (
 				<div>
 					<h2>Study</h2>
-					<img src={studyBook} style={{ width: "150px", margin: "auto" }} />
-					<p style={textStyle}>Break in:</p>
-					<p style={clockStyle}>
-						{minutes < 10 ? "0" + minutes : minutes}:
-						{seconds < 10 ? "0" + seconds : seconds}
-					</p>
-					{startBool ? (
-						<>
-							<button className="controlButton red" onClick={handleStop}>
-								Stop
-							</button>
-							<button className="controlButton inactive" onClick={handleStart}>
-								Start
-							</button>
-						</>
-					) : (
-						<>
-							<button className="controlButton inactive" onClick={handleStop}>
-								Stop
-							</button>
-							<button className="controlButton green" onClick={handleStart}>
-								Start
-							</button>
-						</>
-					)}
-					<button className="controlButton yellow" onClick={handleRestart}>
-						Restart
-					</button>
+					<div className="centerContent">
+						<img src={studyBook} style={{ width: "150px"}} />
+						<p style={{fontSize: "1.2rem"}}>Break in:</p>
+						<p style={{fontSize: "3rem"}}>
+							{minutes < 10 ? "0" + minutes : minutes}:
+							{seconds < 10 ? "0" + seconds : seconds}
+						</p>
+						<div className="flex flex-row">
+							{startBool ? (<>
+								<button className="controlButton red" onClick={handleStop}>Stop</button>
+								<button className="controlButton inactive" onClick={handleStart}>Start</button>
+							</>) : (<>
+								<button className="controlButton inactive" onClick={handleStop}>Stop</button>
+								<button className="controlButton green" onClick={handleStart}>Start</button>
+							</>)}
+							<button className="controlButton yellow" onClick={handleRestart}>Restart</button>
+						</div>	
+					</div>	
 				</div>
 			)}
-		</div>
+		</main>
 	);
 }
 

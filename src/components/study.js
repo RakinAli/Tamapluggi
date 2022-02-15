@@ -1,23 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import {Link } from "react-router-dom";
 import Statpanel from "./Statpanel";
-import SelectButtons from "./Selectbuttons";
 
 function Study(props) {
 	return (
-		<main className="flex flex-col pt-3 ">
+		<main>
 			<Statpanel energyFillStudy={props.energyFill} />
-			<SelectButtons 
-				energyFill={props.energyFill} 
-				setEnergyFill = {props.setEnergyFill}
-				minute={props.minute}
-				setMinute={props.setMinute}
-				second={props.second}
-				setSecond={props.setSecond}
-				shortBreak = {props.shortBreak}
-				setShortBreak = {props.setShortBreak}
-				longBreak = {props.longBreak}
-				setLongBreak = {props.setLongBreak}
-			/>
+			<h2>Study</h2>
+			<div className="centerContent">
+				<Link to="../Timer"><button className="largeButton">Start</button> </Link>
+				<Link to="../SetSchedule"><button className="largeButton">Set study timer</button> </Link>
+			</div>
 		</main>
 	);
 }
