@@ -6,7 +6,8 @@ function Study(props) {
 	return (
 		<main className="flex flex-col pt-3 ">
 			<Statpanel energyFillStudy={props.energyFill} />
-			<SelectButtons energyFill={props.energyFill} 
+			<SelectButtons 
+				energyFill={props.energyFill} 
 				setEnergyFill = {props.setEnergyFill}
 				minute={props.minute}
 				setMinute={props.setMinute}

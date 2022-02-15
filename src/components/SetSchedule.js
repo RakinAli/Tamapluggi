@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Timer from "./Timer";
+
 function SetSchedule(props) {
 	//const [minute, setMinute] = useState(25);
 	//const [second, setSecond] = useState(0);
@@ -26,7 +27,6 @@ function SetSchedule(props) {
 		props.setMinute(onChangeMinutes);
 		props.setShortBreak(onChangeShortBreak);
 		props.setLongBreak(onChangeLongBreak);
-		console.log(props)
 	}
 
 	return (

@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import Navbar from "./components/Navbar";
-import Flashcard from "./components/Flashcard";
+import FlashcardSelect from "./components/FlashcardSelect";
 import Home from "./components/Home";
 import Planning from "./components/Planning";
 import Statistics from "./components/Statistics";
@@ -9,6 +9,8 @@ import Header from "./components/Header";
 
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Settings from "./components/Settings";
+import Flashcard2 from "./components/Flashcard2";
+import FlashcardSettings from "./components/FlashcardSettings";
 
 
 /* Hann inte göra klart Router-> Fixar klart Router idag*/
@@ -19,13 +21,13 @@ function App() {
 	const [second, setSecond] = useState(0);
 	const [shortBreak, setShortBreak] = useState(5);
 	const [longBreak, setLongBreak] = useState(30);
+	const [showOptions, setShowOptions] = useState(false);
 
 	return (
 		<Router>
 			<div className="App">
 				<Header />
 				<Routes>
-					<Route path="/Flashcard" exact element={<Flashcard />} />
 					<Route path="/" exact element={<Home energyFill = {energyFill}/>} />
 					<Route path="/Planning" exact element={<Planning  task = {task}
 						setTask = {setTask}
@@ -42,7 +44,19 @@ function App() {
 						longBreak = {longBreak}
 						setLongBreak = {setLongBreak}
 					 />}/>
-				   <Route path="/Settings" element={<Settings />} />
+				   <Route path="/Settings" exact element={<Settings />} />
+				   <Route path="/FlashcardSelect" exact element={<FlashcardSelect 
+						showOptions = {showOptions}
+						setShowOptions = {setShowOptions}
+					/>} />
+				   <Route path="/Flashcard2" exact element={<Flashcard2 
+						showOptions = {showOptions}
+						setShowOptions = {setShowOptions}
+				   />} />
+				   	<Route path="/FlashcardSettings" exact element={<FlashcardSettings 
+						showOptions = {showOptions}
+						setShowOptions = {setShowOptions}
+				   />} />
 				</Routes>
 				<Navbar />
 			</div>
