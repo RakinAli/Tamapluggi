@@ -92,7 +92,7 @@ function Timer(props) {
 
 	return (
 		<main>
-			<Statpanel/>
+			<Statpanel energyFill = {props.energyFill} setEnergyFill = {props.setEnergyFill}/>
 			{stopBool ? (
 				<BreakStarted 
 					setMinutes={setMinutes}

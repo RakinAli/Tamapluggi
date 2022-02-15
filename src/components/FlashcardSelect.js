@@ -7,7 +7,7 @@ function FlashcardSelect(props) {
 
 	return (
 		<main>
-            <Statpanel />
+            <Statpanel energyFill = {props.energyFill}/>
             <h2>Flashcards</h2>
             <div className="centerContent">
                 <Link to = "../Flashcard2">

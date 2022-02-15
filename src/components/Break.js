@@ -26,7 +26,7 @@ function Break(props) {
 
 	return (
 		<main>
-			<Statpanel/>
+			<Statpanel energyFill = {props.energyFill} setEnergyFill = {props.setEnergyFill}/>
 			{studyBool ? (
 				<div className="popUpWindow">
 					<h3>Time study again?</h3>
