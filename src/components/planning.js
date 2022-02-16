@@ -1,11 +1,23 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Planning(props) {
-	//const [task, setTask] = useState([]);
+function Planning() {	
+	//localStorage.setItem('toDoList', JSON.stringify([]));
+	//localStorage.removeItem('toDoList')
+
+	let storedTask = [];
+
+	if(JSON.parse(localStorage.getItem('toDoList')) != null){
+		storedTask = JSON.parse(localStorage.getItem('toDoList'));
+	}
+	else{
+		localStorage.setItem('toDoList', JSON.stringify([]));
+	}
+
+	const [task, setTask] = useState(storedTask);
 	const [input, setInput] = useState("");
 	let navigate = useNavigate();
-	
+
 	function handleBack() {
 		navigate("/home");
 	}
@@ -15,16 +27,18 @@ function Planning(props) {
 			return;
 		}
 		else{
-			props.setTask([...props.task, input]);
+			let newTask = [...task, input];
+			setTask(newTask);
 			setInput("");
-		}
-		
+			localStorage.setItem('toDoList', JSON.stringify(newTask));
+		}		
 	}
 
 	function handleDelete(index) {
-		let arrCopy = [...props.task];
+		let arrCopy = [...task];
 		arrCopy.splice(index, 1);
-		props.setTask(arrCopy);
+		setTask(arrCopy);
+		localStorage.setItem('toDoList', JSON.stringify(arrCopy));
 	}
 
 	const flexStyle = {
@@ -48,10 +62,9 @@ function Planning(props) {
 
 			<section>
 				<h3 style = {{fontWeight: "bold"}}>TODO-list</h3>
-				{props.task.map((item, index) => {
+				{task.map((item, index) => {
 					return (
-						<div>
-							
+						<div>	
 							<div className="nextTo">
 								<p>{item}</p>
 								<button onClick={() => handleDelete(index) } className = "smallButton">Done</button>
@@ -62,6 +75,7 @@ function Planning(props) {
 			</section>
 		</main>
 	);
+
 }
 
 export default Planning;

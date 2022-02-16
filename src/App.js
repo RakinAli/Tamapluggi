@@ -22,13 +22,17 @@ import Flashcard from "./components/Flashcard"; /*Old flashcard page*/
 
 /* Hann inte göra klart Router-> Fixar klart Router idag*/
 function App() {
+	//Statpanel
 	const [energyFill, setEnergyFill] = useState(50);
-	const [task, setTask] = useState([]);
+	
+	//Study
 	const [minute, setMinute] = useState(25);
 	const [second, setSecond] = useState(0);
 	const [shortBreak, setShortBreak] = useState(5);
 	const [longBreak, setLongBreak] = useState(30);
 	const [breakTime, setBreakTime] = useState(5);
+	
+	//Flashcards
 	const [showOptions, setShowOptions] = useState(false);
 
 	return (
@@ -45,7 +49,7 @@ function App() {
 					<Route
 						path="/Planning"
 						exact
-						element={<Planning task={task} setTask={setTask} />}
+						element={<Planning/>}
 					/>
 					<Route path="/Statistics" exact element={<Statistics />} />
 					<Route
