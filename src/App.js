@@ -19,6 +19,7 @@ import Planning from "./components/Planning";
 import Statistics from "./components/Statistics";
 
 import Flashcard from "./components/Flashcard"; /*Old flashcard page*/
+import FlashcardEdit from "./components/FlashcardEdit";
 
 /* Hann inte göra klart Router-> Fixar klart Router idag*/
 function App() {
@@ -31,7 +32,7 @@ function App() {
 	const [shortBreak, setShortBreak] = useState(5);
 	const [longBreak, setLongBreak] = useState(30);
 	const [breakTime, setBreakTime] = useState(5);
-	
+	const [flashcardList, setFlashcardList] = useState([]); 
 	//Flashcards
 	const [showOptions, setShowOptions] = useState(false);
 
@@ -134,6 +135,7 @@ function App() {
 								setShowOptions={setShowOptions}
 								energyFill={energyFill}
 								setEnergyFill={setEnergyFill}
+								flashcardList = {flashcardList}
 							/>
 						}
 					/>
@@ -146,6 +148,18 @@ function App() {
 								setShowOptions={setShowOptions}
 								energyFill={energyFill}
 								setEnergyFill={setEnergyFill}
+							/>
+						}
+					/>
+					<Route
+						path="/FlashcardEdit"
+						exact
+						element={
+							<FlashcardEdit
+								energyFill={energyFill}
+								setEnergyFill={setEnergyFill}
+								setFlashcardList = {setFlashcardList}
+								flashcardList = {flashcardList}
 							/>
 						}
 					/>

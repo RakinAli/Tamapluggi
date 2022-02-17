@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Planning() {	
+function Planning() {
 	//localStorage.setItem('toDoList', JSON.stringify([]));
-	//localStorage.removeItem('toDoList')
+	//localStorage.removeItem('toDoList');
 
 	let storedTask = [];
 
-	if(JSON.parse(localStorage.getItem('toDoList')) != null){
+	if (JSON.parse(localStorage.getItem('toDoList')) != null) {
 		storedTask = JSON.parse(localStorage.getItem('toDoList'));
 	}
-	else{
+	else {
 		localStorage.setItem('toDoList', JSON.stringify([]));
 	}
 
@@ -23,15 +23,15 @@ function Planning() {
 	}
 
 	function handleAdd() {
-		if(input === ""){
+		if (input === "") {
 			return;
 		}
-		else{
+		else {
 			let newTask = [...task, input];
 			setTask(newTask);
 			setInput("");
 			localStorage.setItem('toDoList', JSON.stringify(newTask));
-		}		
+		}
 	}
 
 	function handleDelete(index) {
@@ -49,33 +49,29 @@ function Planning() {
 
 	return (
 		<main>
-			<h2>Planning</h2>
-			<div style = {flexStyle}>
-				<label>Add a task:</label>
+			<h2>TODO-list</h2>
+			<ul>
+				{task.map((item, index) => {
+					return (
+						<li style={{ padding: "0.3rem 0rem" }}>
+							<div className="nextTo">
+								<p>{item}</p>
+								<button onClick={() => handleDelete(index)} className="smallButton">Done</button>
+							</div>
+						</li>
+					);
+				})}
+			</ul>
+			<div className="nextTo" style={flexStyle, { paddingTop: "1rem" }}>
 				<input
-					placeholder="Enter task info..."
+					placeholder="Enter new task..."
 					value={input}
 					onChange={(e) => setInput(e.target.value)}
 				/>
-				<button onClick={handleAdd} className = "smallButton">+</button>
+				<button onClick={handleAdd} className="smallButton">Add</button>
 			</div>
-
-			<section>
-				<h3 style = {{fontWeight: "bold"}}>TODO-list</h3>
-				{task.map((item, index) => {
-					return (
-						<div>	
-							<div className="nextTo">
-								<p>{item}</p>
-								<button onClick={() => handleDelete(index) } className = "smallButton">Done</button>
-							</div>
-						</div>
-					);
-				})}
-			</section>
 		</main>
 	);
-
 }
 
 export default Planning;

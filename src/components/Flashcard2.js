@@ -4,40 +4,8 @@ import Statpanel from "./Statpanel.js";
 import "../App.css";
 
 function Flashcard2(props) {
-	const flashcardList = [
-		{
-			id: 1,
-			question: "Vilken skola är bättre?",
-			answer: "KTH",
-			options: ["KTH", "Chalmers"],
-		},
-		{
-			id: 2,
-			question: "Vilken kurs är den jobbigaste?",
-			answer: "Logik för dataloger",
-			options: [
-				"Logik för dataloger",
-				"Logik för dataloger",
-				"Logik för dataloger",
-			],
-		},
-		{
-			id: 3,
-			question: "Vilken kurs är näst jobbigast?",
-			answer: "Flervariabel",
-			options: [
-				"Logik för dataloger",
-				"Logik för dataloger",
-				"Logik för dataloger",
-			],
-		},
-		{
-			id: 4,
-			question: "Fråga?",
-			answer: "Svar",
-			options: ["Alternativ 1", "Alternativ 2", "Alternativ 3"],
-		},
-	];
+	console.log(props.flashcardList)
+	const flashcardList = props.flashcardList;
 
 	const [currentCard, setCurrentCard] = useState(0);
 	const [flip, setFlip] = useState(false);

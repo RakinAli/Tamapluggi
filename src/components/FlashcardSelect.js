@@ -16,7 +16,10 @@ function FlashcardSelect(props) {
                 <Link to = "../FlashcardSettings">
                     <button className="largeButton"> Flashcard settings </button>
                 </Link>
-                <button className="largeButton"> Edit flashcards </button>
+                <Link to="../FlashcardEdit">
+                    <button className="largeButton"> Add flashcards </button>
+                </Link>
+               
             </div>
 		</main>
 	);
