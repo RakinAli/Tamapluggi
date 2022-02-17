@@ -22,6 +22,7 @@ function FlashcardEdit(props) {
         setQuestion("");
         setAnswer("");
         setOptions([])
+        props.setCardOrNot(true);
     }
 
     function handleOptionAdd(){

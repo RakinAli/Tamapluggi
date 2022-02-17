@@ -4,7 +4,7 @@ import Statpanel from "./Statpanel.js";
 import "../App.css";
 
 function Flashcard2(props) {
-	console.log(props.flashcardList)
+	console.log(props.flashcardList);
 	const flashcardList = props.flashcardList;
 
 	const [currentCard, setCurrentCard] = useState(0);
@@ -88,7 +88,7 @@ function Flashcard2(props) {
 
 	return (
 		<main>
-			<Statpanel energyFill = {props.energyFill}/>
+			<Statpanel energyFill={props.energyFill} />
 			<h2 style={{ paddingTop: "10px" }}>Playing flashcards</h2>
 			{showFinishedPage ? (
 				<div className="centerContent">
@@ -111,13 +111,13 @@ function Flashcard2(props) {
 					) : (
 						<div className="flashcard" onClick={() => setFlip(!flip)}>
 							<p>Fråga:</p>
-							<p>{flashcardList[currentCard].question}</p>
+							<p>({flashcardList[currentCard].question})</p>
 						</div>
 					)}
 					<p style={{ textAlign: "center" }}>
 						{currentCard + 1} of {flashcardList.length}
 					</p>
-					<div className="flex flex-row pt-5 justify-between">
+					<div className="flex flex-row justify-between pt-5">
 						{currentCard === 0 ? (
 							<Link to="../FlashcardSelect">
 								<button className="smallButton">Back</button>

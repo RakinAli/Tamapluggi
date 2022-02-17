@@ -8,5 +8,5 @@ export default function FlashcardList({ flashcards }) {
 				return <Fcard flashcard={flashcard} key={flashcard.id} />;
 			})}
 		</div>
-	)
+	);
 }

@@ -25,16 +25,17 @@ import FlashcardEdit from "./components/FlashcardEdit";
 function App() {
 	//Statpanel
 	const [energyFill, setEnergyFill] = useState(50);
-	
+
 	//Study
 	const [minute, setMinute] = useState(25);
 	const [second, setSecond] = useState(0);
 	const [shortBreak, setShortBreak] = useState(5);
 	const [longBreak, setLongBreak] = useState(30);
 	const [breakTime, setBreakTime] = useState(5);
-	const [flashcardList, setFlashcardList] = useState([]); 
+	const [flashcardList, setFlashcardList] = useState([]);
 	//Flashcards
 	const [showOptions, setShowOptions] = useState(false);
+	const [cardOrNot, setCardOrNot] = useState(false);
 
 	return (
 		<Router>
@@ -47,11 +48,7 @@ function App() {
 						exact
 						element={<Flashcard energyFill={energyFill} />}
 					/>
-					<Route
-						path="/Planning"
-						exact
-						element={<Planning/>}
-					/>
+					<Route path="/Planning" exact element={<Planning />} />
 					<Route path="/Statistics" exact element={<Statistics />} />
 					<Route
 						path="/Study"
@@ -123,6 +120,8 @@ function App() {
 								setShowOptions={setShowOptions}
 								energyFill={energyFill}
 								setEnergyFill={setEnergyFill}
+								flashcardList={flashcardList}
+								cardOrNot={cardOrNot}
 							/>
 						}
 					/>
@@ -135,7 +134,7 @@ function App() {
 								setShowOptions={setShowOptions}
 								energyFill={energyFill}
 								setEnergyFill={setEnergyFill}
-								flashcardList = {flashcardList}
+								flashcardList={flashcardList}
 							/>
 						}
 					/>
@@ -158,8 +157,9 @@ function App() {
 							<FlashcardEdit
 								energyFill={energyFill}
 								setEnergyFill={setEnergyFill}
-								setFlashcardList = {setFlashcardList}
-								flashcardList = {flashcardList}
+								setFlashcardList={setFlashcardList}
+								flashcardList={flashcardList}
+								setCardOrNot={setCardOrNot}
 							/>
 						}
 					/>
