@@ -3,6 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 import Statpanel from "./Statpanel.js";
 
 function FlashcardSelect(props) {
+
 	return (
 		<main>
 			<Statpanel energyFill={props.energyFill} />

@@ -32,7 +32,7 @@ function App() {
 	const [shortBreak, setShortBreak] = useState(5);
 	const [longBreak, setLongBreak] = useState(30);
 	const [breakTime, setBreakTime] = useState(5);
-	const [flashcardList, setFlashcardList] = useState([]);
+	//const [flashcardList, setFlashcardList] = useState([]);
 	//Flashcards
 	const [showOptions, setShowOptions] = useState(false);
 	const [cardOrNot, setCardOrNot] = useState(false);
@@ -120,7 +120,6 @@ function App() {
 								setShowOptions={setShowOptions}
 								energyFill={energyFill}
 								setEnergyFill={setEnergyFill}
-								flashcardList={flashcardList}
 								cardOrNot={cardOrNot}
 							/>
 						}
@@ -134,7 +133,6 @@ function App() {
 								setShowOptions={setShowOptions}
 								energyFill={energyFill}
 								setEnergyFill={setEnergyFill}
-								flashcardList={flashcardList}
 							/>
 						}
 					/>
@@ -157,8 +155,6 @@ function App() {
 							<FlashcardEdit
 								energyFill={energyFill}
 								setEnergyFill={setEnergyFill}
-								setFlashcardList={setFlashcardList}
-								flashcardList={flashcardList}
 								setCardOrNot={setCardOrNot}
 							/>
 						}

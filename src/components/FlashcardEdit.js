@@ -1,10 +1,18 @@
 import React,{useState} from "react";
 
 function FlashcardEdit(props) {
+    //localStorage.removeItem('flashcardList');
+
+    let cards = []
+    if(localStorage.getItem('flashcardList') !== null){
+        cards = JSON.parse(localStorage.getItem('flashcardList'));
+    }
+    
     const [question, setQuestion] = useState("");
     const [answer, setAnswer] = useState("");
     const [options, setOptions] = useState([]);
     const [newOption, setNewOption] = useState("");
+    const [flashcardList, setFlashcardList] = useState(cards);
 
     const flexStyle = {
 		display: "flex",
@@ -18,7 +26,9 @@ function FlashcardEdit(props) {
             answer: answer,
             options: options
         };
-        props.setFlashcardList([...props.flashcardList, newFlashcard]);
+        let newList = [...flashcardList, newFlashcard];
+        setFlashcardList(newList);
+        localStorage.setItem('flashcardList', JSON.stringify(newList));
         setQuestion("");
         setAnswer("");
         setOptions([])

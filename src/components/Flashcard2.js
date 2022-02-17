@@ -4,8 +4,9 @@ import Statpanel from "./Statpanel.js";
 import "../App.css";
 
 function Flashcard2(props) {
-	console.log(props.flashcardList);
-	const flashcardList = props.flashcardList;
+	//console.log(props.flashcardList);
+	const flashcardList = JSON.parse(localStorage.getItem('flashcardList'));
+	//const flashcardList = props.flashcardList;
 
 	const [currentCard, setCurrentCard] = useState(0);
 	const [flip, setFlip] = useState(false);
@@ -111,7 +112,7 @@ function Flashcard2(props) {
 					) : (
 						<div className="flashcard" onClick={() => setFlip(!flip)}>
 							<p>Fråga:</p>
-							<p>({flashcardList[currentCard].question})</p>
+							<p>{flashcardList[currentCard].question}</p>
 						</div>
 					)}
 					<p style={{ textAlign: "center" }}>
