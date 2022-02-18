@@ -9,20 +9,9 @@ function FlashcardSelect(props) {
 			<Statpanel energyFill={props.energyFill} />
 			<h2>Flashcards</h2>
 			<div className="centerContent">
-				{props.cardOrNot ? (
-					<Link to="../Flashcard2">
-						<button className="largeButton"> Start playing </button>
-					</Link>
-				) : (
-					<button
-						className="largeButton"
-						onClick={() => alert("You need to add a flashcard first!")}
-					>
-						{" "}
-						Start playing{" "}
-					</button>
-				)}
-
+				<Link to="../Flashcard2">
+					<button className="largeButton"> Start playing </button>
+				</Link>
 				<Link to="../FlashcardSettings">
 					<button className="largeButton"> Flashcard settings </button>
 				</Link>

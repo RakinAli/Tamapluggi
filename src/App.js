@@ -13,13 +13,13 @@ import SetSchedule from "./components/SetSchedule"; /*Settings page for study*/
 import FlashcardSelect from "./components/FlashcardSelect"; /*Select page for flashcards*/
 import Flashcard2 from "./components/Flashcard2"; /*Playing flashcards page*/
 import FlashcardSettings from "./components/FlashcardSettings"; /*Settings page for flashcards*/
+import FlashcardEdit from "./components/FlashcardEdit"; /* Page for adding flashcards*/
 
 import Settings from "./components/Settings";
 import Planning from "./components/Planning";
 import Statistics from "./components/Statistics";
 
 import Flashcard from "./components/Flashcard"; /*Old flashcard page*/
-import FlashcardEdit from "./components/FlashcardEdit";
 
 /* Hann inte göra klart Router-> Fixar klart Router idag*/
 function App() {
@@ -34,10 +34,6 @@ function App() {
 	const [breakTime, setBreakTime] = useState(5);
 	//const [flashcardList, setFlashcardList] = useState([]);
 	
-	//Flashcards
-	const [showOptions, setShowOptions] = useState(false);
-	const [cardOrNot, setCardOrNot] = useState(false);
-
 	//Stastics
 	const [studyHistory, setStudyHistory] = useState([]);
 
@@ -129,23 +125,16 @@ function App() {
 					<Route
 						path="/FlashcardSelect"
 						exact
-						element={
-							<FlashcardSelect
-								showOptions={showOptions}
-								setShowOptions={setShowOptions}
-								energyFill={energyFill}
-								setEnergyFill={setEnergyFill}
-								cardOrNot={cardOrNot}
-							/>
-						}
+						element={<FlashcardSelect
+							energyFill={energyFill}
+							setEnergyFill={setEnergyFill}
+						/>}
 					/>
 					<Route
 						path="/Flashcard2"
 						exact
 						element={
 							<Flashcard2
-								showOptions={showOptions}
-								setShowOptions={setShowOptions}
 								energyFill={energyFill}
 								setEnergyFill={setEnergyFill}
 							/>
@@ -156,8 +145,6 @@ function App() {
 						exact
 						element={
 							<FlashcardSettings
-								showOptions={showOptions}
-								setShowOptions={setShowOptions}
 								energyFill={energyFill}
 								setEnergyFill={setEnergyFill}
 							/>
@@ -170,7 +157,6 @@ function App() {
 							<FlashcardEdit
 								energyFill={energyFill}
 								setEnergyFill={setEnergyFill}
-								setCardOrNot={setCardOrNot}
 							/>
 						}
 					/>

@@ -4,13 +4,28 @@ import Statpanel from "./Statpanel.js";
 import "../App.css";
 
 function Flashcard2(props) {
-	//console.log(props.flashcardList);
-	const flashcardList = JSON.parse(localStorage.getItem('flashcardList'));
-	//const flashcardList = props.flashcardList;
+	let flashcardList = JSON.parse(localStorage.getItem('flashcardList'));
+
+	let showOptions = true;
+	if (JSON.parse(localStorage.getItem('showOptions')) !== null) {
+		showOptions = JSON.parse(localStorage.getItem('showOptions'));
+	}
+
+	let noCards = false;
+	if (flashcardList === null) {
+		noCards = true;
+		flashcardList = [
+			{
+				question: "",
+				answer: "",
+				options: ""
+			}
+		]
+	}
 
 	const [currentCard, setCurrentCard] = useState(0);
 	const [flip, setFlip] = useState(false);
-	const [showFinishedPage, setShowFinishedPage] = useState(false);
+	const [showFinishedPage, setShowFinishedPage] = useState(noCards);
 	const [correctCounter, setCorrectCounter] = useState(0);
 	const [incorrectCounter, setIncorrectCounter] = useState(0);
 
@@ -94,9 +109,15 @@ function Flashcard2(props) {
 			{showFinishedPage ? (
 				<div className="centerContent">
 					<h3>Congratulations! You finished the deck :)</h3>
-					<button onClick={restart} className="largeButton">
-						Restart
-					</button>
+					{noCards ? (
+						<button className="largeButton inactive">
+							Restart
+						</button>
+					) : (
+						<button onClick={restart} className="largeButton">
+							Restart
+						</button>
+					)}
 					<Link to="../FlashcardSelect">
 						<button className="largeButton">Back to menu</button>
 					</Link>
@@ -148,7 +169,7 @@ function Flashcard2(props) {
 							Next
 						</button>
 					</div>
-					{props.showOptions ? (
+					{showOptions ? (
 						<div>
 							<h3>Options:</h3>
 							<ul>
