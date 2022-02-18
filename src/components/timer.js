@@ -68,7 +68,7 @@ function Timer(props) {
 	const [startBool, setStartBool] = useState(true);
 	const [stopBool, setStopBool] = useState(false);
 
-	console.log("StudyHistory: ", props.studyHistory);
+	//console.log("StudyHistory: ", props.studyHistory);
 
 	function handleStop() {
 		setStartBool(false);
@@ -86,6 +86,20 @@ function Timer(props) {
 	function handleStart() {
 		setStartBool(true);
 	}
+
+	// Kod för att spara study session, körs när vi går bort från sidan
+	useEffect(() => {
+		
+		return () => {
+			let oldHistory = props.studyHistory;
+			let newHistory = {
+				timeHistory: props.timeHistory,
+				dateHistory: new Date().toISOString().slice(0, 10),
+			};
+			props.setStudyHistory([...oldHistory, newHistory]);
+			props.setTimeHistory(0);
+		}
+	}, []);
 
 	let clock;
 	useEffect(() => {
