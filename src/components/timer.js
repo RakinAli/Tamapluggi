@@ -55,8 +55,7 @@ function BreakStarted(props) {
 function Timer(props) {
 	let minute = 25;
 	let second = 0;
-	let oldHistory = props.studyHistory;
-	
+
 	if (props.minute !== undefined) {
 		minute = props.minute;
 	}
@@ -68,19 +67,12 @@ function Timer(props) {
 	const [minutes, setMinutes] = useState(minute);
 	const [startBool, setStartBool] = useState(true);
 	const [stopBool, setStopBool] = useState(false);
-	
-	console.log("StudyHistory: ",props.studyHistory)	
 
+	console.log("StudyHistory: ", props.studyHistory);
 
 	function handleStop() {
 		setStartBool(false);
 		clearInterval(clock);
-		
-		let newHistory = {
-					timeHistory: props.timeHistory,
-					dateHistory: new Date().toISOString().slice(0, 10),
-					}
-		props.setStudyHistory([...oldHistory, newHistory]);
 	}
 
 	function handleRestart() {
@@ -109,11 +101,10 @@ function Timer(props) {
 				}
 				props.setEnergyFill(props.energyFill - 0.5);
 				props.setTimeHistory(props.timeHistory + 1);
-
-
 			}, 1000);
 
 			return () => clearInterval(clock);
+
 		} else {
 			return;
 		}
