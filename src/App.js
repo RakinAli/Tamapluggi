@@ -33,10 +33,11 @@ function App() {
 	const [longBreak, setLongBreak] = useState(30);
 	const [breakTime, setBreakTime] = useState(5);
 	//const [flashcardList, setFlashcardList] = useState([]);
-	
-	//Stastics
-	const [studyHistory, setStudyHistory] = useState([]);
 
+	//Stastics -> Study Time History
+	const [studyHistory, setStudyHistory] = useState([]);
+	const [timeHistory, setTimeHistory] = useState(0);
+	const [historyIsEmpty, setHistoryIsEmpty] = useState(false);
 
 	return (
 		<Router>
@@ -54,7 +55,12 @@ function App() {
 						path="/Statistics"
 						exact
 						element={
-							<Statistics history={studyHistory} setHistory={setStudyHistory} />
+							<Statistics
+								studyHistory={studyHistory}
+								setHistory={setStudyHistory}
+								historyIsEmpty={historyIsEmpty}
+								setHistoryIsEmpty={setHistoryIsEmpty}
+							/>
 						}
 					/>
 					<Route
@@ -81,8 +87,10 @@ function App() {
 						exact
 						element={
 							<Timer
-								history={studyHistory}
-								setHistory={setStudyHistory}
+								timeHistory={timeHistory}
+								setTimeHistory={setTimeHistory}
+								studyHistory={studyHistory}
+								setStudyHistory={setStudyHistory}
 								energyFill={energyFill}
 								setEnergyFill={setEnergyFill}
 								minute={minute}
@@ -125,10 +133,12 @@ function App() {
 					<Route
 						path="/FlashcardSelect"
 						exact
-						element={<FlashcardSelect
-							energyFill={energyFill}
-							setEnergyFill={setEnergyFill}
-						/>}
+						element={
+							<FlashcardSelect
+								energyFill={energyFill}
+								setEnergyFill={setEnergyFill}
+							/>
+						}
 					/>
 					<Route
 						path="/Flashcard2"

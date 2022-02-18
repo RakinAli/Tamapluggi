@@ -3,18 +3,22 @@ import { Link } from "react-router-dom";
 import Statpanel from "./Statpanel";
 import studyBook from "../Images/study_book.svg";
 
-function BreakStarted(props) {	
+function BreakStarted(props) {
 	let shortBreak = 5;
 	let longBreak = 30;
 
-	if(props.shortBreak !== undefined){shortBreak = props.shortBreak;}
-	if(props.longBreak !== undefined){longBreak = props.longBreak;}
+	if (props.shortBreak !== undefined) {
+		shortBreak = props.shortBreak;
+	}
+	if (props.longBreak !== undefined) {
+		longBreak = props.longBreak;
+	}
 
 	function breakFunction(time) {
 		props.setBreakTime(time);
 	}
-	
-	function studyFunction(time){
+
+	function studyFunction(time) {
 		props.setMinutes(time);
 		props.setStopBool(false);
 	}
@@ -23,15 +27,27 @@ function BreakStarted(props) {
 		<div className="popUpWindow">
 			<h3>Time for a break?</h3>
 			<Link to="../Break">
-				<button className="largeButton" onClick={() => breakFunction(shortBreak)}>Short break</button>
+				<button
+					className="largeButton"
+					onClick={() => breakFunction(shortBreak)}
+				>
+					Short break
+				</button>
 			</Link>
 			<Link to="../Break">
-				<button className="largeButton" onClick={() => breakFunction(longBreak)}>Long break</button>
+				<button
+					className="largeButton"
+					onClick={() => breakFunction(longBreak)}
+				>
+					Long break
+				</button>
 			</Link>
 			<button className="largeButton" onClick={() => studyFunction(1)}>
 				Study for a few more minutes
 			</button>
-			<Link to="/"><button className="largeButton">Done for today</button></Link>
+			<Link to="/">
+				<button className="largeButton">Done for today</button>
+			</Link>
 		</div>
 	);
 }
@@ -39,7 +55,8 @@ function BreakStarted(props) {
 function Timer(props) {
 	let minute = 25;
 	let second = 0;
-
+	let oldHistory = props.studyHistory;
+	
 	if (props.minute !== undefined) {
 		minute = props.minute;
 	}
@@ -51,10 +68,19 @@ function Timer(props) {
 	const [minutes, setMinutes] = useState(minute);
 	const [startBool, setStartBool] = useState(true);
 	const [stopBool, setStopBool] = useState(false);
+	
+	console.log("StudyHistory: ",props.studyHistory)	
+
 
 	function handleStop() {
 		setStartBool(false);
 		clearInterval(clock);
+		
+		let newHistory = {
+					timeHistory: props.timeHistory,
+					dateHistory: new Date().toISOString().slice(0, 10),
+					}
+		props.setStudyHistory([...oldHistory, newHistory]);
 	}
 
 	function handleRestart() {
@@ -82,6 +108,9 @@ function Timer(props) {
 					setMinutes(minutes - 1);
 				}
 				props.setEnergyFill(props.energyFill - 0.5);
+				props.setTimeHistory(props.timeHistory + 1);
+
+
 			}, 1000);
 
 			return () => clearInterval(clock);
@@ -92,36 +121,59 @@ function Timer(props) {
 
 	return (
 		<main>
-			<Statpanel energyFill = {props.energyFill} setEnergyFill = {props.setEnergyFill}/>
+			<Statpanel
+				energyFill={props.energyFill}
+				setEnergyFill={props.setEnergyFill}
+			/>
 			{stopBool ? (
-				<BreakStarted 
+				<BreakStarted
 					setMinutes={setMinutes}
 					setStopBool={setStopBool}
-					shortBreak = {props.shortBreak}
-					longBreak = {props.longBreak}
-					setBreakTime = {props.setBreakTime}
-				 />
+					shortBreak={props.shortBreak}
+					longBreak={props.longBreak}
+					setBreakTime={props.setBreakTime}
+				/>
 			) : (
 				<div>
 					<h2>Study</h2>
 					<div className="centerContent">
-						<img src={studyBook} style={{ width: "150px"}} />
-						<p style={{fontSize: "1.2rem"}}>Break in:</p>
-						<p style={{fontSize: "3rem"}}>
+						<img src={studyBook} style={{ width: "150px" }} />
+						<p style={{ fontSize: "1.2rem" }}>Break in:</p>
+						<p style={{ fontSize: "3rem" }}>
 							{minutes < 10 ? "0" + minutes : minutes}:
 							{seconds < 10 ? "0" + seconds : seconds}
 						</p>
 						<div className="flex flex-row">
-							{startBool ? (<>
-								<button className="controlButton red" onClick={handleStop}>Stop</button>
-								<button className="controlButton inactive" onClick={handleStart}>Start</button>
-							</>) : (<>
-								<button className="controlButton inactive" onClick={handleStop}>Stop</button>
-								<button className="controlButton green" onClick={handleStart}>Start</button>
-							</>)}
-							<button className="controlButton yellow" onClick={handleRestart}>Restart</button>
-						</div>	
-					</div>	
+							{startBool ? (
+								<>
+									<button className="controlButton red" onClick={handleStop}>
+										Stop
+									</button>
+									<button
+										className="controlButton inactive"
+										onClick={handleStart}
+									>
+										Start
+									</button>
+								</>
+							) : (
+								<>
+									<button
+										className="controlButton inactive"
+										onClick={handleStop}
+									>
+										Stop
+									</button>
+									<button className="controlButton green" onClick={handleStart}>
+										Start
+									</button>
+								</>
+							)}
+							<button className="controlButton yellow" onClick={handleRestart}>
+								Restart
+							</button>
+						</div>
+					</div>
 				</div>
 			)}
 		</main>
