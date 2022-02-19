@@ -45,21 +45,25 @@ function Statpanel(props) {
 	};
 	let fillLevel;
 	let gradeLevel;
-
+	console.log("gradeFIll", props.gradeFill)
 	if (props.energyFill === undefined) {
 		fillLevel = props.energyFillStudy;
 	}
 	if (props.energyFillStudy === undefined) {
 		fillLevel = props.energyFill;
 	}
-	if (props.gradeFillStudy === undefined &&  props.gradeFillHome) {
+
+	if (props.gradeFillStudy === undefined && props.gradeFillHome === undefined && props.gradeFillSelect === undefined) {
 		gradeLevel = props.gradeFill;
 	}
-	if (props.gradeFillStudy === undefined && props.gradeFillHome) {
-		gradeLevel = props.gradeFill;
+	if (props.gradeFillHome === undefined && props.gradeFill === undefined && props.gradeFillSelect === undefined) {
+		gradeLevel = props.gradeFillStudy;
+	}
+	if (props.gradeFillStudy === undefined && props.gradeFill === undefined && props.gradeFillHome === undefined) {
+		gradeLevel = props.gradeFillSelect;
 	}
 
-	console.log("gradelevel", props.gradeFill);
+	console.log("gradelevel", gradeLevel);
 	return (
 		<div className="statPanel">
 			<div className="flex flex-col">
@@ -69,7 +73,7 @@ function Statpanel(props) {
 				</div>
 				<div className="flex flex-row p-0.25">
 					<img src={Energy} alt="" style={iconStyle} />
-					<Statbar fillLevel={props.gradeFill} />
+					<Statbar fillLevel={gradeLevel} />
 				</div>
 				<div className="flex flex-row p-0.25">
 					<img src={Nonstress} alt="" style={iconStyle} />

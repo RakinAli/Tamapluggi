@@ -40,6 +40,8 @@ function App() {
 	const [timeHistory, setTimeHistory] = useState(0);
 	const [historyIsEmpty, setHistoryIsEmpty] = useState(false);
 
+	
+
 	return (
 		<Router>
 			<div className="App">
@@ -149,6 +151,7 @@ function App() {
 							<FlashcardSelect
 								energyFill={energyFill}
 								setEnergyFill={setEnergyFill}
+								gradeFill={gradeFill}
 							/>
 						}
 					/>
@@ -156,7 +159,11 @@ function App() {
 						path="/Flashcard2"
 						exact
 						element={
-							<Flashcard2 gradeFill={gradeFill} energyFill={energyFill} />
+							<Flashcard2
+								gradeFill={gradeFill}
+								energyFill={energyFill}
+								setGradeFill={setGradeFill}
+							/>
 						}
 					/>
 					<Route
@@ -185,5 +192,7 @@ function App() {
 		</Router>
 	);
 }
+
+
 
 export default App;

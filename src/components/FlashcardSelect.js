@@ -3,10 +3,12 @@ import { Outlet, Link } from "react-router-dom";
 import Statpanel from "./Statpanel.js";
 
 function FlashcardSelect(props) {
-
 	return (
 		<main>
-			<Statpanel energyFill={props.energyFill} />
+			<Statpanel
+				energyFill={props.energyFill}
+				gradeFillSelect={props.gradeFill}
+			/>
 			<h2>Flashcards</h2>
 			<div className="centerContent">
 				<Link to="../Flashcard2">

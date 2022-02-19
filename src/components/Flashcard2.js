@@ -104,7 +104,7 @@ function Flashcard2(props) {
 	let clock;
 	useEffect(() => {
 		clock = setInterval(() => {
-			props.setGradeFill(props.gradeFill + 0.7);
+			props.setGradeFill(props.gradeFill + 0.4);
 		}, 1000);
 
 		return () => clearInterval(clock);
@@ -112,7 +112,7 @@ function Flashcard2(props) {
 
 	return (
 		<main>
-			<Statpanel gradeFill={props.gradeFill} energyFill = {props.energyFill}/>
+			<Statpanel gradeFill={props.gradeFill} energyFill={props.energyFill} />
 			<h2 style={{ paddingTop: "10px" }}>Playing flashcards</h2>
 			{showFinishedPage ? (
 				<div className="centerContent">
