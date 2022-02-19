@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 import Statpanel from "./Statpanel.js";
 import "../App.css";
 
 function Flashcard2(props) {
-	let flashcardList = JSON.parse(localStorage.getItem('flashcardList'));
+	let flashcardList = JSON.parse(localStorage.getItem("flashcardList"));
 
 	let showOptions = true;
-	if (JSON.parse(localStorage.getItem('showOptions')) !== null) {
-		showOptions = JSON.parse(localStorage.getItem('showOptions'));
+	if (JSON.parse(localStorage.getItem("showOptions")) !== null) {
+		showOptions = JSON.parse(localStorage.getItem("showOptions"));
 	}
 
 	let noCards = false;
@@ -18,9 +18,9 @@ function Flashcard2(props) {
 			{
 				question: "",
 				answer: "",
-				options: ""
-			}
-		]
+				options: "",
+			},
+		];
 	}
 
 	const [currentCard, setCurrentCard] = useState(0);
@@ -101,18 +101,24 @@ function Flashcard2(props) {
 		setAnsweredCorrectly(newAnsweredCorrectly);
 		setIncorrectCounter(incorrectCounter + 1);
 	}
+	let clock;
+	useEffect(() => {
+		clock = setInterval(() => {
+			props.setGradeFill(props.gradeFill + 0.7);
+		}, 1000);
+
+		return () => clearInterval(clock);
+	});
 
 	return (
 		<main>
-			<Statpanel energyFill={props.energyFill} />
+			<Statpanel gradeFill={props.gradeFill} energyFill = {props.energyFill}/>
 			<h2 style={{ paddingTop: "10px" }}>Playing flashcards</h2>
 			{showFinishedPage ? (
 				<div className="centerContent">
 					<h3>Congratulations! You finished the deck :)</h3>
 					{noCards ? (
-						<button className="largeButton inactive">
-							Restart
-						</button>
+						<button className="largeButton inactive">Restart</button>
 					) : (
 						<button onClick={restart} className="largeButton">
 							Restart

@@ -11,6 +11,7 @@ function Settings() {
 	*/
 
 	const [date, setDate] = useState(new Date());
+	const [studyGoal, setStudyGoal] = useState("");
 	console.log("Date:", date)
 	
 	return (
@@ -21,6 +22,7 @@ function Settings() {
 					<DatePicker value = {date} onChange ={setDate} placeholder="Pick date" label="Graduation Date" />
 				</div>
 				<label>Study goal for today</label>
+				<input value = {studyGoal} onChange = {(e)=> setStudyGoal(e.target.value)}/>
 			</div>
 		</main>
 	);

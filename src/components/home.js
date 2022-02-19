@@ -8,7 +8,7 @@ function Home(props) {
 	return (
 		/*This flexbox Column is the main*/
 		<main className="flex flex-col pt-3">
-			<Statpanel energyFill = {props.energyFill} />
+			<Statpanel energyFill = {props.energyFill} gradeFillHome = {props.gradeFill}/>
 			<div>
 				<h2>Home</h2>
 				<img src = {Pluggi} alt = ""/>

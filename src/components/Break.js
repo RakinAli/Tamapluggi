@@ -19,6 +19,7 @@ function Break(props) {
 				setSeconds(59);
 				setMinutes(minutes - 1);
 			}
+			props.setEnergyFill(props.energyFill + 0.7);
 		}, 1000);
 
 		return () => clearInterval(clock);
@@ -26,20 +27,27 @@ function Break(props) {
 
 	return (
 		<main>
-			<Statpanel energyFill = {props.energyFill} setEnergyFill = {props.setEnergyFill}/>
+			<Statpanel
+				energyFill={props.energyFill}
+				setEnergyFill={props.setEnergyFill}
+			/>
 			{studyBool ? (
 				<div className="popUpWindow">
 					<h3>Time study again?</h3>
-					<Link to="../Timer"><button className="largeButton">Ok</button></Link>
-					<Link to="/"><button className="largeButton">Done for today</button></Link>
+					<Link to="../Timer">
+						<button className="largeButton">Ok</button>
+					</Link>
+					<Link to="/">
+						<button className="largeButton">Done for today</button>
+					</Link>
 				</div>
 			) : (
 				<div>
 					<h2>Taking a break:</h2>
 					<div className="centerContent">
 						<img src={snackImage} style={{ width: "150px", margin: "auto" }} />
-						<p style={{fontSize: "1.2rem"}}>Time to study in:</p>
-						<p style={{fontSize: "3rem"}}>
+						<p style={{ fontSize: "1.2rem" }}>Time to study in:</p>
+						<p style={{ fontSize: "3rem" }}>
 							{minutes < 10 ? "0" + minutes : minutes}:
 							{seconds < 10 ? "0" + seconds : seconds}
 						</p>

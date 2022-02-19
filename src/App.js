@@ -25,6 +25,7 @@ import Flashcard from "./components/Flashcard"; /*Old flashcard page*/
 function App() {
 	//Statpanel
 	const [energyFill, setEnergyFill] = useState(50);
+	const [gradeFill, setGradeFill] = useState(20);
 
 	//Study
 	const [minute, setMinute] = useState(25);
@@ -44,7 +45,11 @@ function App() {
 			<div className="App">
 				<Header />
 				<Routes>
-					<Route path="/" exact element={<Home energyFill={energyFill} />} />
+					<Route
+						path="/"
+						exact
+						element={<Home energyFill={energyFill} gradeFill={gradeFill} />}
+					/>
 					<Route
 						path="/Flashcard"
 						exact
@@ -79,6 +84,7 @@ function App() {
 								setShortBreak={setShortBreak}
 								longBreak={longBreak}
 								setLongBreak={setLongBreak}
+								gradeFill={gradeFill}
 							/>
 						}
 					/>
@@ -127,7 +133,13 @@ function App() {
 					<Route
 						path="/Break"
 						exact
-						element={<Break energyFill={energyFill} breakTime={breakTime} />}
+						element={
+							<Break
+								energyFill={energyFill}
+								breakTime={breakTime}
+								setEnergyFill={setEnergyFill}
+							/>
+						}
 					/>
 					<Route path="/Settings" exact element={<Settings />} />
 					<Route
@@ -144,10 +156,7 @@ function App() {
 						path="/Flashcard2"
 						exact
 						element={
-							<Flashcard2
-								energyFill={energyFill}
-								setEnergyFill={setEnergyFill}
-							/>
+							<Flashcard2 gradeFill={gradeFill} energyFill={energyFill} />
 						}
 					/>
 					<Route
