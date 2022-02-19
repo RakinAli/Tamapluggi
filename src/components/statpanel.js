@@ -45,7 +45,7 @@ function Statpanel(props) {
 	};
 	let fillLevel;
 	let gradeLevel;
-	console.log("gradeFIll", props.gradeFill)
+	
 	if (props.energyFill === undefined) {
 		fillLevel = props.energyFillStudy;
 	}
@@ -62,8 +62,11 @@ function Statpanel(props) {
 	if (props.gradeFillStudy === undefined && props.gradeFill === undefined && props.gradeFillHome === undefined) {
 		gradeLevel = props.gradeFillSelect;
 	}
+	if (props.gradeFill === undefined && props.gradeFillStudy === undefined && props.gradeFillSelect === undefined) {
+		gradeLevel = props.gradeFillHome;
+	}
 
-	console.log("gradelevel", gradeLevel);
+	
 	return (
 		<div className="statPanel">
 			<div className="flex flex-col">

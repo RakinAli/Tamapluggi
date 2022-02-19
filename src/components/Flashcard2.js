@@ -107,8 +107,16 @@ function Flashcard2(props) {
 			props.setGradeFill(props.gradeFill + 0.4);
 		}, 1000);
 
-		return () => clearInterval(clock);
+		return () => 
+			
+			clearInterval(clock);
+		
 	});
+		useEffect(() => {
+			
+
+			return () => props.setFlashcardBool(true);
+		},[]);
 
 	return (
 		<main>

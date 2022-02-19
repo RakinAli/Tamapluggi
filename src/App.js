@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -26,6 +26,7 @@ function App() {
 	//Statpanel
 	const [energyFill, setEnergyFill] = useState(50);
 	const [gradeFill, setGradeFill] = useState(20);
+	const [flashcardBool, setFlashcardBool] = useState(true);
 
 	//Study
 	const [minute, setMinute] = useState(25);
@@ -40,7 +41,17 @@ function App() {
 	const [timeHistory, setTimeHistory] = useState(0);
 	const [historyIsEmpty, setHistoryIsEmpty] = useState(false);
 
-	
+	let clock;
+	useEffect(() => {
+		if (flashcardBool) {
+			clock = setInterval(() => {
+				setGradeFill(gradeFill - 0.5);
+			}, 1000);
+		} else {
+			return;
+		}
+		return () => clearInterval(clock);
+	});
 
 	return (
 		<Router>
@@ -152,6 +163,8 @@ function App() {
 								energyFill={energyFill}
 								setEnergyFill={setEnergyFill}
 								gradeFill={gradeFill}
+								flashcardBool={flashcardBool}
+								setFlashcardBool={setFlashcardBool}
 							/>
 						}
 					/>
@@ -163,6 +176,8 @@ function App() {
 								gradeFill={gradeFill}
 								energyFill={energyFill}
 								setGradeFill={setGradeFill}
+								flashcardBool={flashcardBool}
+								setFlashcardBool={setFlashcardBool}
 							/>
 						}
 					/>
@@ -192,7 +207,5 @@ function App() {
 		</Router>
 	);
 }
-
-
 
 export default App;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 import Statpanel from "./Statpanel.js";
 
@@ -12,7 +12,13 @@ function FlashcardSelect(props) {
 			<h2>Flashcards</h2>
 			<div className="centerContent">
 				<Link to="../Flashcard2">
-					<button className="largeButton"> Start playing </button>
+					<button
+						className="largeButton"
+						onClick={() => props.setFlashcardBool(false)}
+					>
+						{" "}
+						Start playing{" "}
+					</button>
 				</Link>
 				<Link to="../FlashcardSettings">
 					<button className="largeButton"> Flashcard settings </button>
