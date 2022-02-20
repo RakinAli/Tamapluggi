@@ -45,6 +45,9 @@ function Statpanel(props) {
 	};
 	let fillLevel;
 	let gradeLevel;
+	let stressLevel;
+	stressLevel = localStorage.getItem('stressFill');
+	stressLevel = JSON.parse(stressLevel);
 	
 	if (props.energyFill === undefined) {
 		fillLevel = props.energyFillStudy;
@@ -53,17 +56,23 @@ function Statpanel(props) {
 		fillLevel = props.energyFill;
 	}
 
-	if (props.gradeFillStudy === undefined && props.gradeFillHome === undefined && props.gradeFillSelect === undefined) {
+	if (props.gradeFillStudy === undefined && props.gradeFillHome === undefined && props.gradeFillSelect === undefined && props.gradeFilltimer === undefined && props.gradeFillBreak === undefined) {
 		gradeLevel = props.gradeFill;
 	}
-	if (props.gradeFillHome === undefined && props.gradeFill === undefined && props.gradeFillSelect === undefined) {
+	if (props.gradeFillHome === undefined && props.gradeFill === undefined && props.gradeFillSelect === undefined && props.gradeFilltimer === undefined && props.gradeFillBreak === undefined) {
 		gradeLevel = props.gradeFillStudy;
 	}
-	if (props.gradeFillStudy === undefined && props.gradeFill === undefined && props.gradeFillHome === undefined) {
+	if (props.gradeFillStudy === undefined && props.gradeFill === undefined && props.gradeFillHome === undefined && props.gradeFilltimer === undefined && props.gradeFillBreak === undefined) {
 		gradeLevel = props.gradeFillSelect;
 	}
-	if (props.gradeFill === undefined && props.gradeFillStudy === undefined && props.gradeFillSelect === undefined) {
+	if (props.gradeFill === undefined && props.gradeFillStudy === undefined && props.gradeFillSelect === undefined && props.gradeFilltimer === undefined && props.gradeFillBreak === undefined) {
 		gradeLevel = props.gradeFillHome;
+	}
+	if (props.gradeFill === undefined && props.gradeFillStudy === undefined && props.gradeFillSelect === undefined && props.gradeFillHome === undefined && props.gradeFillBreak === undefined) {
+		gradeLevel = props.gradeFillTimer;
+	}
+	if (props.gradeFill === undefined && props.gradeFillStudy === undefined && props.gradeFillSelect === undefined && props.gradeFillHome === undefined && props.gradeFillTimer === undefined) {
+		gradeLevel = props.gradeFillBreak;
 	}
 
 	
@@ -72,15 +81,15 @@ function Statpanel(props) {
 			<div className="flex flex-col">
 				<div className="flex flex-row p-0.25">
 					<img src={Knowledge} alt="" style={iconStyle} />
-					<Statbar fillLevel="75" />
-				</div>
-				<div className="flex flex-row p-0.25">
-					<img src={Energy} alt="" style={iconStyle} />
 					<Statbar fillLevel={gradeLevel} />
 				</div>
 				<div className="flex flex-row p-0.25">
-					<img src={Nonstress} alt="" style={iconStyle} />
+					<img src={Energy} alt="" style={iconStyle} />
 					<Statbar fillLevel={fillLevel} />
+				</div>
+				<div className="flex flex-row p-0.25">
+					<img src={Nonstress} alt="" style={iconStyle} />
+					<Statbar fillLevel={stressLevel} />
 				</div>
 			</div>
 			<Betyg />

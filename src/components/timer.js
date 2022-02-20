@@ -92,12 +92,14 @@ function Timer(props) {
 		
 		return () => {
 			let oldHistory = props.studyHistory;
+			let studiedTime = props.timeHistory;
 			let newHistory = {
-				timeHistory: props.timeHistory,
+				timeHistory: studiedTime,
 				dateHistory: new Date().toISOString().slice(0, 10),
 			};
 			props.setStudyHistory([...oldHistory, newHistory]);
 			props.setTimeHistory(0);
+			props.setFlashcardBool(true);
 		}
 	}, []);
 
@@ -115,6 +117,7 @@ function Timer(props) {
 				}
 				props.setEnergyFill(props.energyFill - 0.5);
 				props.setTimeHistory(props.timeHistory + 1);
+				props.setGradeFill(props.gradeFill + 0.4);
 			}, 1000);
 
 			return () => clearInterval(clock);
@@ -129,6 +132,7 @@ function Timer(props) {
 			<Statpanel
 				energyFill={props.energyFill}
 				setEnergyFill={props.setEnergyFill}
+				gradeFillTimer = {props.gradeFill}
 			/>
 			{stopBool ? (
 				<BreakStarted

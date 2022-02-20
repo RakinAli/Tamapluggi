@@ -12,7 +12,7 @@ function Settings() {
 
 	const [date, setDate] = useState(new Date());
 	const [studyGoal, setStudyGoal] = useState("");
-	console.log("Date:", date)
+	//console.log("Date:", date)
 	
 	return (
 		<main>

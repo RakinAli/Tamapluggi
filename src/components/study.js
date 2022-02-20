@@ -12,7 +12,7 @@ function Study(props) {
 			<h2>Study</h2>
 			<div className="centerContent">
 				<Link to="../Timer">
-					<button className="largeButton">Start</button>{" "}
+					<button className="largeButton" onClick={() => props.setFlashcardBool(false)}>Start</button>{" "}
 				</Link>
 				<Link to="../SetSchedule">
 					<button className="largeButton">Set study timer</button>{" "}

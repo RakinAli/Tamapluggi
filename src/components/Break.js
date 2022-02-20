@@ -30,6 +30,7 @@ function Break(props) {
 			<Statpanel
 				energyFill={props.energyFill}
 				setEnergyFill={props.setEnergyFill}
+				gradeFillBreak = {props.gradeFill}
 			/>
 			{studyBool ? (
 				<div className="popUpWindow">

@@ -1,9 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Planning() {
+function Planning(props) {
 	//localStorage.setItem('toDoList', JSON.stringify([]));
 	//localStorage.removeItem('toDoList');
+	
+	let stressFill = 100;
+	if(JSON.parse(localStorage.getItem('stressFill')) != null){
+		stressFill = JSON.parse(localStorage.getItem('stressFill'));
+	}
+
+	let clock;
+	useEffect(() => {
+		
+			clock = setInterval(() => {
+				
+			//props.setStressFill(props.stressFill + 0.4);
+			localStorage.setItem('stressFill', JSON.stringify(stressFill + 0.4));
+			}, 1000);
+
+			return () => clearInterval(clock);
+		})
+	useEffect(() => {
+
+		return () => {
+			props.setPlanningBool(true);
+		}
+	}, []);
 
 	let storedTask = [];
 

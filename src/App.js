@@ -23,10 +23,18 @@ import Flashcard from "./components/Flashcard"; /*Old flashcard page*/
 
 /* Hann inte göra klart Router-> Fixar klart Router idag*/
 function App() {
+
+	let stress = 20;
+	if(localStorage.getItem('stressFill') !== null){
+		stress = localStorage.getItem('stressFill');
+		stress = JSON.parse(stress);
+	}
+
 	//Statpanel
-	const [energyFill, setEnergyFill] = useState(50);
+	const [energyFill, setEnergyFill] = useState(20);
 	const [gradeFill, setGradeFill] = useState(20);
 	const [flashcardBool, setFlashcardBool] = useState(true);
+	const [planningBool, setPlanningBool] = useState(true);
 
 	//Study
 	const [minute, setMinute] = useState(25);
@@ -34,7 +42,6 @@ function App() {
 	const [shortBreak, setShortBreak] = useState(5);
 	const [longBreak, setLongBreak] = useState(30);
 	const [breakTime, setBreakTime] = useState(5);
-	//const [flashcardList, setFlashcardList] = useState([]);
 
 	//Stastics -> Study Time History
 	const [studyHistory, setStudyHistory] = useState([]);
@@ -52,6 +59,19 @@ function App() {
 		}
 		return () => clearInterval(clock);
 	});
+	let clockPlanning;
+	useEffect(() => {
+		if (planningBool) {
+			clockPlanning = setInterval(() => {
+				let newStress = stress - 0.5;
+				if(newStress < 0){ newStress = 0; }
+				localStorage.setItem('stressFill', newStress);
+			}, 1000);
+		} else {
+			return;
+		}
+		return () => clearInterval(clockPlanning);
+	});
 
 	return (
 		<Router>
@@ -68,7 +88,9 @@ function App() {
 						exact
 						element={<Flashcard energyFill={energyFill} />}
 					/>
-					<Route path="/Planning" exact element={<Planning />} />
+					<Route path="/Planning" exact element={<Planning 
+						setPlanningBool={setPlanningBool}
+					/>} />
 					<Route
 						path="/Statistics"
 						exact
@@ -98,6 +120,7 @@ function App() {
 								longBreak={longBreak}
 								setLongBreak={setLongBreak}
 								gradeFill={gradeFill}
+								setFlashcardBool={setFlashcardBool}
 							/>
 						}
 					/>
@@ -122,7 +145,11 @@ function App() {
 								setLongBreak={setLongBreak}
 								breakTime={breakTime}
 								setBreakTime={setBreakTime}
-							/>
+								gradeFill = {gradeFill}
+								setFlashcardBool={setFlashcardBool}
+								gradeFill = {gradeFill}
+								setGradeFill = {setGradeFill}
+ 							/>
 						}
 					/>
 					<Route
@@ -151,6 +178,7 @@ function App() {
 								energyFill={energyFill}
 								breakTime={breakTime}
 								setEnergyFill={setEnergyFill}
+								gradeFill={gradeFill}
 							/>
 						}
 					/>
