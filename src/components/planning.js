@@ -15,13 +15,14 @@ function Planning(props) {
 		
 			clock = setInterval(() => {
 				
-			//props.setStressFill(props.stressFill + 0.4);
-			localStorage.setItem('stressFill', JSON.stringify(stressFill + 0.4));
+			localStorage.setItem('stressFill', JSON.stringify(Math.min(stressFill + 0.5, 100)));
 			}, 1000);
 
 			return () => clearInterval(clock);
 		})
 	useEffect(() => {
+
+		props.setPlanningBool(false);
 
 		return () => {
 			props.setPlanningBool(true);

@@ -68,8 +68,6 @@ function Timer(props) {
 	const [startBool, setStartBool] = useState(true);
 	const [stopBool, setStopBool] = useState(false);
 
-	//console.log("StudyHistory: ", props.studyHistory);
-
 	function handleStop() {
 		setStartBool(false);
 		clearInterval(clock);
@@ -87,22 +85,6 @@ function Timer(props) {
 		setStartBool(true);
 	}
 
-	// Kod för att spara study session, körs när vi går bort från sidan
-	useEffect(() => {
-		
-		return () => {
-			let oldHistory = props.studyHistory;
-			let studiedTime = props.timeHistory;
-			let newHistory = {
-				timeHistory: studiedTime,
-				dateHistory: new Date().toISOString().slice(0, 10),
-			};
-			props.setStudyHistory([...oldHistory, newHistory]);
-			props.setTimeHistory(0);
-			props.setFlashcardBool(true);
-		}
-	}, []);
-
 	let clock;
 	useEffect(() => {
 		if (startBool) {
@@ -116,8 +98,11 @@ function Timer(props) {
 					setMinutes(minutes - 1);
 				}
 				props.setEnergyFill(props.energyFill - 0.5);
-				props.setTimeHistory(props.timeHistory + 1);
 				props.setGradeFill(props.gradeFill + 0.4);
+
+				let temp = JSON.parse(localStorage.getItem('studiedTime')) + 1;
+				localStorage.setItem('studiedTime', JSON.stringify(temp));
+				
 			}, 1000);
 
 			return () => clearInterval(clock);
@@ -126,6 +111,30 @@ function Timer(props) {
 			return;
 		}
 	});
+
+	// Kod för att spara study session, körs när vi går bort från sidan
+	useEffect(() => {
+
+		localStorage.setItem('studiedTime', JSON.stringify(0));
+		
+		return () => {
+			let oldHistory = [];
+			if(localStorage.getItem('studyHistory') !== null){
+				oldHistory = JSON.parse(localStorage.getItem('studyHistory'));
+			}
+
+			let newHistory = {
+				timeHistory: JSON.parse(localStorage.getItem('studiedTime')),
+				dateHistory: new Date().toISOString().slice(0, 10),
+			};
+
+			newHistory = [newHistory, ...oldHistory];
+
+			localStorage.setItem('studyHistory', JSON.stringify(newHistory));
+			
+			props.setFlashcardBool(true);
+		}
+	}, []);
 
 	return (
 		<main>

@@ -3,8 +3,10 @@ import React, { useState } from "react";
 function Statistics(props) {
 	let historyIsEmpty = true;
 
-	if (props.studyHistory.length !== 0) {
+	let studyHistory;
+	if (localStorage.getItem('studyHistory') !== null) {
 		historyIsEmpty = false;
+		studyHistory = JSON.parse(localStorage.getItem('studyHistory'));
 	}
 
 	return (
@@ -16,11 +18,11 @@ function Statistics(props) {
 					<p>No study sessions recorded!</p>
 				) : (
 					<ul>
-						{props.studyHistory.map((element, index) => {
+						{studyHistory.map((element, index) => {
 							return (
 								<li key={index}>
 									{element.dateHistory}:{" "}
-									{Math.round(element.timeHistory / 60).toFixed(2)} minutes
+									{Math.floor(element.timeHistory / 60)}{" min "}{element.timeHistory%60}{" sec"}
 								</li>
 							);
 						})}

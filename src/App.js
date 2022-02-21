@@ -26,8 +26,7 @@ function App() {
 
 	let stress = 20;
 	if(localStorage.getItem('stressFill') !== null){
-		stress = localStorage.getItem('stressFill');
-		stress = JSON.parse(stress);
+		stress = JSON.parse(localStorage.getItem('stressFill'));
 	}
 
 	//Statpanel
@@ -42,11 +41,6 @@ function App() {
 	const [shortBreak, setShortBreak] = useState(5);
 	const [longBreak, setLongBreak] = useState(30);
 	const [breakTime, setBreakTime] = useState(5);
-
-	//Stastics -> Study Time History
-	const [studyHistory, setStudyHistory] = useState([]);
-	const [timeHistory, setTimeHistory] = useState(0);
-	const [historyIsEmpty, setHistoryIsEmpty] = useState(false);
 
 	let clock;
 	useEffect(() => {
@@ -63,9 +57,7 @@ function App() {
 	useEffect(() => {
 		if (planningBool) {
 			clockPlanning = setInterval(() => {
-				let newStress = stress - 0.5;
-				if(newStress < 0){ newStress = 0; }
-				localStorage.setItem('stressFill', newStress);
+				localStorage.setItem('stressFill', JSON.stringify(Math.max(stress - 0.5, 0)));
 			}, 1000);
 		} else {
 			return;
@@ -95,20 +87,13 @@ function App() {
 						path="/Statistics"
 						exact
 						element={
-							<Statistics
-								studyHistory={studyHistory}
-								setHistory={setStudyHistory}
-								historyIsEmpty={historyIsEmpty}
-								setHistoryIsEmpty={setHistoryIsEmpty}
-							/>
+							<Statistics/>
 						}
 					/>
 					<Route
 						path="/Study"
 						element={
 							<Study
-								history={studyHistory}
-								setHistory={setStudyHistory}
 								energyFill={energyFill}
 								setEnergyFill={setEnergyFill}
 								minute={minute}
@@ -129,10 +114,6 @@ function App() {
 						exact
 						element={
 							<Timer
-								timeHistory={timeHistory}
-								setTimeHistory={setTimeHistory}
-								studyHistory={studyHistory}
-								setStudyHistory={setStudyHistory}
 								energyFill={energyFill}
 								setEnergyFill={setEnergyFill}
 								minute={minute}
