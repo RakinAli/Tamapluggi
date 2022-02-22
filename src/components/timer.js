@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Statpanel from "./Statpanel";
 import studyBook from "../Images/study_book.svg";
+import Alarm from "../sounds/alarm.m4a";
+
+
 
 function BreakStarted(props) {
 	let shortBreak = 5;
@@ -20,6 +23,8 @@ function BreakStarted(props) {
 
 	function studyFunction(time) {
 		props.setMinutes(time);
+		props.setSeconds(0);
+		props.setStartBool(true);
 		props.setStopBool(false);
 	}
 
@@ -68,8 +73,12 @@ function Timer(props) {
 	const [startBool, setStartBool] = useState(true);
 	const [stopBool, setStopBool] = useState(false);
 
+	const alarmSound = new Audio(Alarm);
+	//alarmSound.loop =true;
+	
 	function handleStop() {
 		setStartBool(false);
+		//alarmSound.play();
 		clearInterval(clock);
 	}
 
@@ -90,10 +99,12 @@ function Timer(props) {
 		if (startBool) {
 			if (minutes <= 0 && seconds <= 0) {
 				setStopBool(true);
+				setStartBool(false);
+				alarmSound.play();
 			}
 			clock = setInterval(() => {
 				setSeconds(seconds - 1);
-				if (seconds === 0) {
+				if (seconds <= 0) {
 					setSeconds(59);
 					setMinutes(minutes - 1);
 				}
@@ -146,7 +157,9 @@ function Timer(props) {
 			{stopBool ? (
 				<BreakStarted
 					setMinutes={setMinutes}
+					setSeconds={setSeconds}
 					setStopBool={setStopBool}
+					setStartBool={setStartBool}
 					shortBreak={props.shortBreak}
 					longBreak={props.longBreak}
 					setBreakTime={props.setBreakTime}
@@ -163,29 +176,9 @@ function Timer(props) {
 						</p>
 						<div className="flex flex-row">
 							{startBool ? (
-								<>
-									<button className="controlButton red" onClick={handleStop}>
-										Stop
-									</button>
-									<button
-										className="controlButton inactive"
-										onClick={handleStart}
-									>
-										Start
-									</button>
-								</>
+								<button className="controlButton red" onClick={handleStop}>Stop</button>
 							) : (
-								<>
-									<button
-										className="controlButton inactive"
-										onClick={handleStop}
-									>
-										Stop
-									</button>
-									<button className="controlButton green" onClick={handleStart}>
-										Start
-									</button>
-								</>
+								<button className="controlButton green" onClick={handleStart}>Start</button>
 							)}
 							<button className="controlButton yellow" onClick={handleRestart}>
 								Restart

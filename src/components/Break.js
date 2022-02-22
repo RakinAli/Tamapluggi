@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Statpanel from "./Statpanel";
 import snackImage from "../Images/snack.svg";
+import Alarm from "../sounds/alarm.m4a";
 
 function Break(props) {
 	let clock;
@@ -9,9 +10,12 @@ function Break(props) {
 	const [minutes, setMinutes] = useState(props.breakTime);
 	const [studyBool, setStudyBool] = useState(false);
 
+	const alarmSound = new Audio(Alarm);
+
 	useEffect(() => {
 		if (minutes === 0 && seconds === 0) {
 			setStudyBool(true);
+			alarmSound.play();
 		}
 		clock = setInterval(() => {
 			setSeconds(seconds - 1);
