@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bce63431.css",
+    "main.js": "/static/js/main.722bdf60.js",
+    "static/media/1yr_walking.gif": "/static/media/1yr_walking.fcc5991e5da92c145b4e.gif",
+    "static/media/study_book.svg": "/static/media/study_book.8bf10027bb16e74d4b8ebe7505a85d5b.svg",
+    "static/media/snack.svg": "/static/media/snack.e44b62c2a88e76710e5c5cb888d28eb5.svg",
+    "static/media/settings.svg": "/static/media/settings.5db39530e721079f606f859571a3cbb1.svg",
+    "static/media/flashcards.svg": "/static/media/flashcards.e6278ab0a7ce46e07fe3d17ad915b215.svg",
+    "static/media/planning.svg": "/static/media/planning.5550d88c5ea344427130985076bcbd40.svg",
+    "static/media/home.svg": "/static/media/home.9cb39662958047fd73043e647aa8da55.svg",
+    "static/media/knowledge.svg": "/static/media/knowledge.b261852e816f6a47fc5efeace6d2c56a.svg",
+    "static/media/nonstress.svg": "/static/media/nonstress.167ed52241d4333397059d0c425aa8bc.svg",
+    "static/media/study.svg": "/static/media/study.7f88cd81e3ea4d4a9be9d5d1e8fabe21.svg",
+    "static/media/energy.svg": "/static/media/energy.3b5af527dcbb4f98365163c1e50d3cf3.svg",
+    "index.html": "/index.html",
+    "static/media/statistics.svg": "/static/media/statistics.ef59c4cd50d057cfb7c51ad8a2273bea.svg",
+    "main.bce63431.css.map": "/static/css/main.bce63431.css.map",
+    "main.722bdf60.js.map": "/static/js/main.722bdf60.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bce63431.css",
+    "static/js/main.722bdf60.js"
+  ]
+}
