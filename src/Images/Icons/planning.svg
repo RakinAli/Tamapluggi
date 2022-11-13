@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="60mm" height="60mm" version="1.1" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-<g transform="matrix(1.123 0 0 1.123 -11.384 -83.681)" fill="none" stroke="#245214" stroke-dashoffset="34.016" stroke-linecap="round" stroke-linejoin="round">
-<rect x="19.625" y="81.433" width="35.213" height="40.211" ry="2.4112e-17" stroke-width="5.5216" style="paint-order:stroke markers fill"/>
-<rect x="27.361" y="88.871" width="1.6458" height="2.6744" ry="2.1834e-17" stroke-width="5" style="paint-order:stroke markers fill"/>
-<rect x="35.707" y="89.9" width="11.109" height=".41144" ry="2.1834e-17" stroke-width="5" style="paint-order:stroke markers fill"/>
-<rect x="27.301" y="99.028" width="1.6458" height="2.6744" ry="2.1834e-17" stroke-width="5" style="paint-order:stroke markers fill"/>
-<rect x="35.647" y="100.06" width="11.109" height=".41144" ry="2.1834e-17" stroke-width="5" style="paint-order:stroke markers fill"/>
-<rect x="27.477" y="109.2" width="1.6458" height="2.6744" ry="2.1834e-17" stroke-width="5" style="paint-order:stroke markers fill"/>
-<rect x="35.823" y="110.23" width="11.109" height=".41144" ry="2.1834e-17" stroke-width="5" style="paint-order:stroke markers fill"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="60mm" height="60mm" version="1.1" viewBox="0 0 60 60"><g fill="none" stroke="#245214" stroke-dashoffset="34.016" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1.123 0 0 1.123 -11.384 -83.681)"><rect width="35.213" height="40.211" x="19.625" y="81.433" stroke-width="5.522" ry="0" style="paint-order:stroke markers fill"/><rect width="1.646" height="2.674" x="27.361" y="88.871" stroke-width="5" ry="0" style="paint-order:stroke markers fill"/><rect width="11.109" height=".411" x="35.707" y="89.9" stroke-width="5" ry="0" style="paint-order:stroke markers fill"/><rect width="1.646" height="2.674" x="27.301" y="99.028" stroke-width="5" ry="0" style="paint-order:stroke markers fill"/><rect width="11.109" height=".411" x="35.647" y="100.06" stroke-width="5" ry="0" style="paint-order:stroke markers fill"/><rect width="1.646" height="2.674" x="27.477" y="109.2" stroke-width="5" ry="0" style="paint-order:stroke markers fill"/><rect width="11.109" height=".411" x="35.823" y="110.23" stroke-width="5" ry="0" style="paint-order:stroke markers fill"/></g></svg>
